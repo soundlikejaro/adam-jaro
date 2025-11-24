@@ -191,7 +191,8 @@ export const projects = [
             },
             {
                 type: 'vimeo',
-                id: '1139982703'
+                id: '1139982703',
+                vertical: true
             },
             {
                 type: 'text',
@@ -228,7 +229,8 @@ export const projects = [
             },
             {
                 type: 'vimeo',
-                id: '1139983564'
+                id: '1139983564',
+                vertical: true
             },
             {
                 type: 'text',
@@ -253,7 +255,8 @@ export const projects = [
             },
             {
                 type: 'vimeo',
-                id: '1139983530'
+                id: '1139983530',
+                vertical: true
             }
         ]
     },
@@ -270,7 +273,8 @@ export const projects = [
             },
             {
                 type: 'vimeo',
-                id: '1139986546'
+                id: '1139986546',
+                vertical: true
             },
             {
                 type: 'text',

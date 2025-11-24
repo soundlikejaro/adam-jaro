@@ -91,12 +91,14 @@ document.addEventListener('DOMContentLoaded', () => {
             }
             else if (item.type === 'vimeo') {
                 el = document.createElement('div');
-                el.className = 'video-responsive project-media-item rounded-sm overflow-hidden';
+                const videoClass = item.vertical ? 'video-responsive-vertical' : 'video-responsive';
+                el.className = `${videoClass} project-media-item rounded-sm overflow-hidden`;
                 el.innerHTML = `<iframe src="https://player.vimeo.com/video/${item.id}?title=0&byline=0&portrait=0" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>`;
             }
             else if (item.type === 'youtube') {
                 el = document.createElement('div');
-                el.className = 'video-responsive project-media-item rounded-sm overflow-hidden';
+                const videoClass = item.vertical ? 'video-responsive-vertical' : 'video-responsive';
+                el.className = `${videoClass} project-media-item rounded-sm overflow-hidden`;
                 el.innerHTML = `<iframe src="https://www.youtube.com/embed/${item.id}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
             }
             else if (item.type === 'image-pair') {

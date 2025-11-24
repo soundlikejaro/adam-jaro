@@ -77,20 +77,41 @@ h3,
 /* Video Responsive */
 .video-responsive {
     position: relative;
-    width: 100%;
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
     padding-top: 56.25%;
+    /* 16:9 aspect ratio */
+    overflow: hidden;
 }
 
-/* Full width on mobile, centered with max-width on desktop */
+/* Vertical videos (9:16) */
+.video-responsive-vertical {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 177.78%;
+    /* 9:16 aspect ratio */
+}
+
 @media (min-width: 768px) {
     .video-responsive {
+        width: 100%;
         max-width: 800px;
         margin-left: auto;
         margin-right: auto;
     }
+
+    .video-responsive-vertical {
+        max-width: 350px;
+        padding-top: 70%;
+        /* Reduced height on desktop */
+    }
 }
 
-.video-responsive iframe {
+.video-responsive iframe,
+.video-responsive-vertical iframe {
     position: absolute;
     top: 0;
     left: 0;
