@@ -284,6 +284,40 @@ async function build() {
         // But let's be robust.
         const slug = post.slug || post.title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
 
+        // 1. Determine Description
+        let description = post.description;
+        if (!description) {
+            // Fallback: Extract from first text block
+            const firstTextBlock = post.content.find(c => c.type === 'text');
+            if (firstTextBlock) {
+                // Strip HTML tags
+                const plainText = firstTextBlock.body.replace(/<[^>]*>/g, '');
+                // Truncate to ~160 chars
+                description = plainText.substring(0, 160).trim();
+                if (plainText.length > 160) description += '...';
+            }
+        }
+        if (!description) description = `Read "${post.title}" on Adam Jaro's blog.`;
+
+        // 2. Determine Image
+        let image = post.image; // Allow manual override in data
+        if (!image) {
+            // Fallback: Find first image in content
+            const firstImageBlock = post.content.find(c => c.type === 'image' || c.type === 'image-pair');
+            if (firstImageBlock) {
+                if (firstImageBlock.type === 'image') {
+                    image = firstImageBlock.src;
+                } else if (firstImageBlock.type === 'image-pair') {
+                    image = firstImageBlock.src1;
+                }
+            }
+        }
+        // Ensure image is absolute URL if it exists (assuming it starts with /)
+        if (image && image.startsWith('/')) {
+            image = `https://adamjaro.com${image}`;
+        }
+        // If still no image, writePage will use the default
+
         const contentHtml = post.content.map(item => {
             if (item.type === 'text') return `<div class="project-text-block text-lg leading-relaxed max-w-prose">${item.body}</div>`;
             if (item.type === 'image') return `<img src="${item.src}" alt="Blog image" class="w-full h-auto project-media-item rounded-sm" loading="lazy">`;
@@ -340,8 +374,9 @@ async function build() {
 
         await writePage(path.join(OUT_DIR, 'blog', slug, 'index.html'), blogPostContent, {
             title: `${post.title} - Adam Jaro Blog`,
-            description: `Read "${post.title}" on Adam Jaro's blog.`,
-            url: `https://adamjaro.com/blog/${slug}/`
+            description: description,
+            url: `https://adamjaro.com/blog/${slug}/`,
+            image: image // Pass the image (can be undefined, writePage handles default)
         });
     }
 
