@@ -2,6 +2,8 @@ export const blogPosts = [
     {
         title: 'My first post/rant',
         date: '2025-11-24',
+        image: '/images/thepretender.webp',
+        description: 'I\'ve finally cut my ties with Adobe and am free of paying £70 a month or whatever for software that constantly crashes and pisses everyone off. Affinity and Davinci resolve are seemingly all you need.',
         content: [
             {
                 type: 'text',
