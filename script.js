@@ -134,10 +134,12 @@ document.addEventListener('DOMContentLoaded', () => {
         const nextBtnContainer = document.getElementById('project-next-container');
         const nextBtn = document.getElementById('project-next-btn');
         const nextTitle = document.getElementById('project-next-title');
+        const nextThumb = document.getElementById('project-next-thumb');
 
         if (currentIndex !== -1 && currentIndex < projects.length - 1) {
             const nextProject = projects[currentIndex + 1];
             nextTitle.textContent = nextProject.title;
+            nextThumb.src = nextProject.thumbnail;
             nextBtnContainer.classList.remove('hidden');
 
             // Remove old listeners to avoid stacking (cloning is a simple way to clear listeners)

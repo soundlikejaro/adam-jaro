@@ -157,3 +157,57 @@ h3,
 .btn-pill.nav-link {
     color: white;
 }
+
+/* Rich Pill Button (with thumbnail) */
+.btn-pill-rich {
+    display: inline-flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.5rem 1.5rem 0.5rem 0.5rem;
+    /* Less padding left for image */
+    background: linear-gradient(135deg, #ea3367 0%, #e56e46 100%);
+    color: white;
+    border-radius: 9999px;
+    text-decoration: none;
+    transition: transform 0.2s ease, opacity 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    max-width: 100%;
+    text-align: left;
+}
+
+.btn-pill-rich:hover {
+    transform: translateY(-1px);
+    opacity: 0.95;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    text-decoration: none;
+}
+
+.btn-pill-rich img {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    flex-shrink: 0;
+}
+
+.btn-pill-rich .content {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    /* Allow text truncate if needed */
+}
+
+.btn-pill-rich .label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    opacity: 0.9;
+    font-weight: 600;
+}
+
+.btn-pill-rich .title {
+    font-weight: 700;
+    font-size: 1rem;
+    line-height: 1.2;
+}
