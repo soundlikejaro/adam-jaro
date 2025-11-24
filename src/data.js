@@ -254,9 +254,8 @@ export const projects = [
                 `
             },
             {
-                type: 'vimeo',
-                id: '1139983530',
-                vertical: true
+                type: 'youtube',
+                id: '6p-dCFqKph0'
             }
         ]
     },
