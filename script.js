@@ -135,6 +135,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const nextBtn = document.getElementById('project-next-btn');
         const nextTitle = document.getElementById('project-next-title');
         const nextThumb = document.getElementById('project-next-thumb');
+        const backBtnBottom = document.getElementById('project-back-btn-bottom').parentElement;
 
         if (currentIndex !== -1 && currentIndex < projects.length - 1) {
             const nextProject = projects[currentIndex + 1];
@@ -150,8 +151,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 history.pushState(null, '', `#${nextProject.id}`);
                 renderProjectPage(nextProject.id);
             });
+
+            // Hide back button on non-last projects
+            backBtnBottom.classList.add('hidden');
         } else {
             nextBtnContainer.classList.add('hidden');
+            // Show back button only on last project
+            backBtnBottom.classList.remove('hidden');
         }
 
         showPage('page-project', pageTitle);

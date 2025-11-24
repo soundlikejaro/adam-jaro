@@ -81,6 +81,15 @@ h3,
     padding-top: 56.25%;
 }
 
+/* Full width on mobile, centered with max-width on desktop */
+@media (min-width: 768px) {
+    .video-responsive {
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
 .video-responsive iframe {
     position: absolute;
     top: 0;
