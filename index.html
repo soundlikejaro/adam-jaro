@@ -5,24 +5,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Adam Jaro - Creative Director</title>
-    <meta name="description"
-        content="Adam Jaro is a multi-disciplinary creative director based in London, specialising in filmmaking, editing, and authentic storytelling.">
-    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <meta name="description" content="Creative director based in London. Brand & advertising.">
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://adamjaro.com/">
     <meta property="og:title" content="Adam Jaro - Creative Director">
-    <meta property="og:description"
-        content="Multi-disciplinary creative director based in London. Filmmaking, editing, and authentic storytelling.">
+    <meta property="og:description" content="Creative director based in London. Brand & advertising.">
     <meta property="og:image" content="https://adamjaro.com/images/herecomestrouble.webp">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://adamjaro.com/">
     <meta property="twitter:title" content="Adam Jaro - Creative Director">
-    <meta property="twitter:description"
-        content="Multi-disciplinary creative director based in London. Filmmaking, editing, and authentic storytelling.">
+    <meta property="twitter:description" content="Creative director based in London. Brand & advertising.">
     <meta property="twitter:image" content="https://adamjaro.com/images/herecomestrouble.webp">
 
     <!-- Tailwind CSS -->
@@ -36,6 +33,8 @@
             document.documentElement.classList.remove('dark');
         }
     </script>
+
+    <script>window.siteConfig = {"emailUser":"hello","emailDomain":"adamjaro.com"};</script>
 
     <script>
         tailwind.config = {
@@ -73,126 +72,165 @@
     <!-- Header -->
     <header id="main-header"
         class="fixed top-0 left-0 w-full flex justify-between items-center px-4 md:px-10 py-4 md:py-6 z-50 transition-all duration-300">
-        <h1 class="text-2xl font-bold tracking-tight cursor-pointer nav-link hover:opacity-70 transition-opacity"
-            id="nav-home">ADAM JARO </h1>
-        <nav><span class="text-lg font-medium tracking-wide cursor-pointer nav-link hover:opacity-70 transition-opacity"
-                id="nav-info">INFO </span></nav>
+        <a href="/"
+            class="text-2xl font-bold tracking-tight cursor-pointer nav-link hover:opacity-70 transition-opacity"
+            id="nav-home">ADAM JARO </a>
+        <nav><a href="/info/"
+                class="text-lg font-medium tracking-wide cursor-pointer nav-link hover:opacity-70 transition-opacity"
+                id="nav-info">INFO </a></nav>
     </header>
     <!-- Main Content Area -->
     <main id="main-content" class="flex-grow px-4 md:px-10 pt-24 md:pt-32 pb-40 md:pb-48">
-        <!-- Homepage (Project Grid) -->
+        
         <section id="page-home" class="page active">
             <div class="mb-6 md:mb-8 text-left md:text-center max-w-2xl mx-auto">
-                <p class="text-lg md:text-xl text-muted-text font-light">Creative director. Brand &
-                    advertising. London,
-                    UK.</p>
+                <p class="text-lg md:text-xl text-muted-text font-light">Creative director. Brand & advertising. London, UK.</p>
             </div>
             <div id="project-grid" class="grid grid-cols-1 sm:grid-cols-2 gap-2 items-start">
-                <!-- Project thumbnails injected by JS -->
-            </div>
-        </section>
-        <!-- Project Page -->
-        <section id="page-project" class="page">
-            <div class="max-w-4xl mx-auto">
-                <div class="mb-8"><span class="btn-pill nav-link cursor-pointer" id="project-back-btn">← All
-                        Projects</span></div>
-                <header class="mb-10">
-                    <h2 id="project-title" class="text-3xl md:text-5xl font-bold mb-2 leading-tight">
-                    </h2>
-                    <p id="project-category" class="text-lg text-muted-text font-medium"></p>
-                </header>
-                <article id="project-content-container" class="space-y-8 md:space-y-12">
-                    <!-- Content injected by JS -->
-                </article>
-                <div class="mt-12 mb-4 hidden" id="project-next-container">
-                    <span class="btn-pill-rich nav-link cursor-pointer" id="project-next-btn">
-                        <img src="" alt="Next Project" id="project-next-thumb">
-                        <span class="content">
-                            <span class="label">Next Project</span>
-                            <span class="title" id="project-next-title"></span>
-                        </span>
-                        <span class="text-xl ml-2">→</span>
-                    </span>
-                </div>
-                <div class="mt-12 mb-8"><span class="btn-pill nav-link cursor-pointer" id="project-back-btn-bottom">←
-                        Back to all projects</span></div>
-            </div>
-        </section>
-        <!-- Info Page -->
-        <section id="page-info" class="page">
-            <div class="max-w-4xl mx-auto">
-                <div class="mb-8"><span class="btn-pill nav-link cursor-pointer" id="info-back-btn">← Back to all
-                        projects</span></div>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
-                    <div id="info-bio" class="md:col-span-2 text-xl leading-relaxed font-light">
-                        <!-- Bio injected by JS -->
-                    </div>
-                    <div id="info-contact" class="space-y-4">
-                        <!-- Contact info injected by JS -->
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- Privacy Policy Page -->
-        <section id="page-privacy" class="page">
-            <div class="max-w-4xl mx-auto">
-                <div class="mb-8">
-                    <span class="btn-pill nav-link cursor-pointer" id="privacy-back-btn">← Back</span>
-                </div>
-                <div id="privacy-content" class="text-lg leading-relaxed font-light">
-                    <!-- Privacy content injected by JS -->
-                </div>
-            </div>
-        </section>
-
-        <!-- Blog List Page -->
-        <section id="page-blog" class="page">
-            <div class="max-w-4xl mx-auto">
-                <div class="mb-8">
-                    <span class="btn-pill nav-link cursor-pointer" id="blog-back-btn">← Home</span>
-                </div>
-                <header class="mb-10">
-                    <h2 class="text-3xl md:text-5xl font-bold mb-2 leading-tight">Blog</h2>
-                </header>
-                <div id="blog-list" class="space-y-8">
-                    <!-- Blog entries injected by JS -->
-                </div>
-            </div>
-        </section>
-
-        <!-- Blog Post Page -->
-        <section id="page-blog-post" class="page">
-            <div class="max-w-4xl mx-auto">
-                <div class="mb-8">
-                    <span class="btn-pill nav-link cursor-pointer" id="blog-post-back-btn">← All Posts</span>
-                </div>
-                <header class="mb-10">
-                    <h2 id="blog-post-title" class="text-3xl md:text-5xl font-bold mb-2 leading-tight"></h2>
-                    <p id="blog-post-date" class="text-lg text-muted-text font-medium"></p>
-                </header>
-                <article id="blog-post-content" class="space-y-8 md:space-y-12 mb-16">
-                    <!-- Content injected by JS -->
-                </article>
-
-                <!-- Bio / Contact Section (Echoing Info Page) -->
-                <div class="border-t border-border-light pt-12 pb-12">
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
-                        <div id="blog-bio" class="md:col-span-2 text-xl leading-relaxed font-light">
-                            <!-- Bio injected by JS -->
-                        </div>
-                        <div id="blog-contact" class="space-y-4">
-                            <!-- Contact info injected by JS -->
+                
+                    <div class="group relative cursor-pointer project-thumbnail" onclick="window.location.href='/projects/the-pretender/'">
+                        <div class="relative overflow-hidden aspect-[4/3]">
+                            <img src="/images/thepretender.webp" alt="The Pretender" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                            <div class="project-thumbnail-desktop-overlay absolute inset-0 bg-overlay-bg/90 p-6 flex flex-col justify-end opacity-0 transition-opacity duration-300 md:group-hover:opacity-100">
+                                <h3 class="text-xl font-bold text-primary-text mb-1">The Pretender</h3>
+                                <p class="text-sm text-muted-text uppercase tracking-wider">Kooth x The Diana Award</p>
+                            </div>
                         </div>
                     </div>
-                </div>
-
-                <div class="border-t border-border-light pt-10 mt-0">
-                    <button id="blog-view-projects-btn" class="btn-pill nav-link">
-                        View my work →
-                    </button>
-                </div>
+                    <div class="project-thumbnail-mobile-title p-4 md:hidden">
+                        <h3 class="text-lg font-bold">The Pretender</h3>
+                        <p class="text-sm text-muted-text">Kooth x The Diana Award</p>
+                    </div>
+                
+                    <div class="group relative cursor-pointer project-thumbnail" onclick="window.location.href='/projects/your-move/'">
+                        <div class="relative overflow-hidden aspect-[4/3]">
+                            <img src="/images/yourmove1.webp" alt="Your Move" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                            <div class="project-thumbnail-desktop-overlay absolute inset-0 bg-overlay-bg/90 p-6 flex flex-col justify-end opacity-0 transition-opacity duration-300 md:group-hover:opacity-100">
+                                <h3 class="text-xl font-bold text-primary-text mb-1">Your Move</h3>
+                                <p class="text-sm text-muted-text uppercase tracking-wider">Kooth</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-thumbnail-mobile-title p-4 md:hidden">
+                        <h3 class="text-lg font-bold">Your Move</h3>
+                        <p class="text-sm text-muted-text">Kooth</p>
+                    </div>
+                
+                    <div class="group relative cursor-pointer project-thumbnail" onclick="window.location.href='/projects/here-comes-trouble/'">
+                        <div class="relative overflow-hidden aspect-[4/3]">
+                            <img src="/images/herecomestrouble.webp" alt="Here comes trouble" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                            <div class="project-thumbnail-desktop-overlay absolute inset-0 bg-overlay-bg/90 p-6 flex flex-col justify-end opacity-0 transition-opacity duration-300 md:group-hover:opacity-100">
+                                <h3 class="text-xl font-bold text-primary-text mb-1">Here comes trouble</h3>
+                                <p class="text-sm text-muted-text uppercase tracking-wider">Trouble Club</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-thumbnail-mobile-title p-4 md:hidden">
+                        <h3 class="text-lg font-bold">Here comes trouble</h3>
+                        <p class="text-sm text-muted-text">Trouble Club</p>
+                    </div>
+                
+                    <div class="group relative cursor-pointer project-thumbnail" onclick="window.location.href='/projects/together-we-create-the-amazing/'">
+                        <div class="relative overflow-hidden aspect-[4/3]">
+                            <img src="/images/RAHA.webp" alt="Together, we create the amazing" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                            <div class="project-thumbnail-desktop-overlay absolute inset-0 bg-overlay-bg/90 p-6 flex flex-col justify-end opacity-0 transition-opacity duration-300 md:group-hover:opacity-100">
+                                <h3 class="text-xl font-bold text-primary-text mb-1">Together, we create the amazing</h3>
+                                <p class="text-sm text-muted-text uppercase tracking-wider">Royal Albert Hall America</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-thumbnail-mobile-title p-4 md:hidden">
+                        <h3 class="text-lg font-bold">Together, we create the amazing</h3>
+                        <p class="text-sm text-muted-text">Royal Albert Hall America</p>
+                    </div>
+                
+                    <div class="group relative cursor-pointer project-thumbnail" onclick="window.location.href='/projects/the-light-show/'">
+                        <div class="relative overflow-hidden aspect-[4/3]">
+                            <img src="/images/thelightshow.webp" alt="The light show" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                            <div class="project-thumbnail-desktop-overlay absolute inset-0 bg-overlay-bg/90 p-6 flex flex-col justify-end opacity-0 transition-opacity duration-300 md:group-hover:opacity-100">
+                                <h3 class="text-xl font-bold text-primary-text mb-1">The light show</h3>
+                                <p class="text-sm text-muted-text uppercase tracking-wider">British Soft Drinks Association</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-thumbnail-mobile-title p-4 md:hidden">
+                        <h3 class="text-lg font-bold">The light show</h3>
+                        <p class="text-sm text-muted-text">British Soft Drinks Association</p>
+                    </div>
+                
+                    <div class="group relative cursor-pointer project-thumbnail" onclick="window.location.href='/projects/london-fashion-week-ss24/'">
+                        <div class="relative overflow-hidden aspect-[4/3]">
+                            <img src="/images/LFW24.webp" alt="London fashion week SS24" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                            <div class="project-thumbnail-desktop-overlay absolute inset-0 bg-overlay-bg/90 p-6 flex flex-col justify-end opacity-0 transition-opacity duration-300 md:group-hover:opacity-100">
+                                <h3 class="text-xl font-bold text-primary-text mb-1">London fashion week SS24</h3>
+                                <p class="text-sm text-muted-text uppercase tracking-wider">Emilia Wickstead</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-thumbnail-mobile-title p-4 md:hidden">
+                        <h3 class="text-lg font-bold">London fashion week SS24</h3>
+                        <p class="text-sm text-muted-text">Emilia Wickstead</p>
+                    </div>
+                
+                    <div class="group relative cursor-pointer project-thumbnail" onclick="window.location.href='/projects/unwind/'">
+                        <div class="relative overflow-hidden aspect-[4/3]">
+                            <img src="/images/unwind.webp" alt="Unwind" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                            <div class="project-thumbnail-desktop-overlay absolute inset-0 bg-overlay-bg/90 p-6 flex flex-col justify-end opacity-0 transition-opacity duration-300 md:group-hover:opacity-100">
+                                <h3 class="text-xl font-bold text-primary-text mb-1">Unwind</h3>
+                                <p class="text-sm text-muted-text uppercase tracking-wider">MindLabs</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-thumbnail-mobile-title p-4 md:hidden">
+                        <h3 class="text-lg font-bold">Unwind</h3>
+                        <p class="text-sm text-muted-text">MindLabs</p>
+                    </div>
+                
+                    <div class="group relative cursor-pointer project-thumbnail" onclick="window.location.href='/projects/join-the-mental-health-revolution/'">
+                        <div class="relative overflow-hidden aspect-[4/3]">
+                            <img src="/images/mindlabs.webp" alt="Join the mental health revolution" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                            <div class="project-thumbnail-desktop-overlay absolute inset-0 bg-overlay-bg/90 p-6 flex flex-col justify-end opacity-0 transition-opacity duration-300 md:group-hover:opacity-100">
+                                <h3 class="text-xl font-bold text-primary-text mb-1">Join the mental health revolution</h3>
+                                <p class="text-sm text-muted-text uppercase tracking-wider">MindLabs</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-thumbnail-mobile-title p-4 md:hidden">
+                        <h3 class="text-lg font-bold">Join the mental health revolution</h3>
+                        <p class="text-sm text-muted-text">MindLabs</p>
+                    </div>
+                
+                    <div class="group relative cursor-pointer project-thumbnail" onclick="window.location.href='/projects/bring-the-gym-home/'">
+                        <div class="relative overflow-hidden aspect-[4/3]">
+                            <img src="/images/bringthegymhome.webp" alt="Bring the gym home" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                            <div class="project-thumbnail-desktop-overlay absolute inset-0 bg-overlay-bg/90 p-6 flex flex-col justify-end opacity-0 transition-opacity duration-300 md:group-hover:opacity-100">
+                                <h3 class="text-xl font-bold text-primary-text mb-1">Bring the gym home</h3>
+                                <p class="text-sm text-muted-text uppercase tracking-wider">Fiit</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-thumbnail-mobile-title p-4 md:hidden">
+                        <h3 class="text-lg font-bold">Bring the gym home</h3>
+                        <p class="text-sm text-muted-text">Fiit</p>
+                    </div>
+                
+                    <div class="group relative cursor-pointer project-thumbnail" onclick="window.location.href='/projects/hussle-x-fiit/'">
+                        <div class="relative overflow-hidden aspect-[4/3]">
+                            <img src="/images/HusslexFiit.webp" alt="Hussle x Fiit" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                            <div class="project-thumbnail-desktop-overlay absolute inset-0 bg-overlay-bg/90 p-6 flex flex-col justify-end opacity-0 transition-opacity duration-300 md:group-hover:opacity-100">
+                                <h3 class="text-xl font-bold text-primary-text mb-1">Hussle x Fiit</h3>
+                                <p class="text-sm text-muted-text uppercase tracking-wider">Hussle x Fiit</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-thumbnail-mobile-title p-4 md:hidden">
+                        <h3 class="text-lg font-bold">Hussle x Fiit</h3>
+                        <p class="text-sm text-muted-text">Hussle x Fiit</p>
+                    </div>
+                
             </div>
         </section>
+    
     </main>
     <!-- Global Footer -->
     <footer
@@ -205,7 +243,7 @@
             </div>
             <div class="flex items-center space-x-6">
                 <div id="footer-social-links" class="flex space-x-4">
-                    <!-- Social links injected by JS -->
+                    <a href="https://www.linkedin.com/in/adamjaro" target="_blank" rel="noopener noreferrer" class="text-sm nav-link font-medium hover:opacity-70 transition-opacity">LinkedIn</a><a href="/blog/"  class="text-sm nav-link font-medium hover:opacity-70 transition-opacity">Blog</a>
                 </div><button id="theme-toggle" type="button"
                     class="p-2 rounded-full text-muted-text hover:text-primary-text hover:bg-border-light transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-text"><span
                         class="sr-only">Toggle dark mode</span><svg id="sun-icon" class="h-5 w-5" fill="none"

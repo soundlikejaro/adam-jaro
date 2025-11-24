@@ -1,0 +1,9 @@
+{
+  "name": "adamjaro.com",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Adam Jaro Portfolio",
+  "scripts": {
+    "build": "node build.js"
+  }
+}

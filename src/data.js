@@ -79,8 +79,8 @@ export const projects = [
             },
             {
                 type: 'image-pair',
-                src1: 'images/yourmove1.webp',
-                src2: 'images/yourmove2.webp'
+                src1: '/images/yourmove1.webp',
+                src2: '/images/yourmove2.webp'
             },
             {
                 type: 'text',

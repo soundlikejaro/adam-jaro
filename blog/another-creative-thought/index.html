@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en" class="">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Another creative thought - Adam Jaro Blog</title>
+    <meta name="description" content="Read "Another creative thought" on Adam Jaro's blog.">
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://adamjaro.com/blog/another-creative-thought/">
+    <meta property="og:title" content="Another creative thought - Adam Jaro Blog">
+    <meta property="og:description" content="Read "Another creative thought" on Adam Jaro's blog.">
+    <meta property="og:image" content="https://adamjaro.com/images/herecomestrouble.webp">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://adamjaro.com/blog/another-creative-thought/">
+    <meta property="twitter:title" content="Another creative thought - Adam Jaro Blog">
+    <meta property="twitter:description" content="Read "Another creative thought" on Adam Jaro's blog.">
+    <meta property="twitter:image" content="https://adamjaro.com/images/herecomestrouble.webp">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- No-Flash Theme Script -->
+    <script>
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+    </script>
+
+    <script>window.siteConfig = {"emailUser":"hello","emailDomain":"adamjaro.com"};</script>
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Space Grotesk', 'sans-serif'], // New display font
+                    },
+                    colors: {
+                        'primary-text': 'rgb(var(--color-primary-text) / <alpha-value>)',
+                        'muted-text': 'rgb(var(--color-muted-text) / <alpha-value>)',
+                        'page-bg': 'rgb(var(--color-page-bg) / <alpha-value>)',
+                        'border-light': 'rgb(var(--color-border-light) / <alpha-value>)',
+                        'overlay-bg': 'rgb(var(--color-overlay-bg) / <alpha-value>)', // Overlay already has alpha, so we might need special handling or just keep it as is if it's not used with opacity modifiers
+                        'nav-link-color': 'rgb(var(--color-nav-link) / <alpha-value>)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts - Inter & Outfit -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="../../style.css">
+</head>
+
+<body class="min-h-screen flex flex-col">
+    <!-- Header -->
+    <header id="main-header"
+        class="fixed top-0 left-0 w-full flex justify-between items-center px-4 md:px-10 py-4 md:py-6 z-50 transition-all duration-300">
+        <a href="/"
+            class="text-2xl font-bold tracking-tight cursor-pointer nav-link hover:opacity-70 transition-opacity"
+            id="nav-home">ADAM JARO </a>
+        <nav><a href="/info/"
+                class="text-lg font-medium tracking-wide cursor-pointer nav-link hover:opacity-70 transition-opacity"
+                id="nav-info">INFO </a></nav>
+    </header>
+    <!-- Main Content Area -->
+    <main id="main-content" class="flex-grow px-4 md:px-10 pt-24 md:pt-32 pb-40 md:pb-48">
+        
+            <section id="page-blog-post" class="page active">
+                <div class="max-w-4xl mx-auto">
+                    <div class="mb-8">
+                        <a href="/blog/" class="btn-pill nav-link cursor-pointer">← All Posts</a>
+                    </div>
+                    <header class="mb-10">
+                        <h2 class="text-3xl md:text-5xl font-bold mb-2 leading-tight">Another creative thought</h2>
+                        <p class="text-lg text-muted-text font-medium">2025-10-15</p>
+                    </header>
+                    <article class="space-y-8 md:space-y-12 mb-16">
+                        <div class="project-text-block text-lg leading-relaxed max-w-prose">
+                    <p>Just testing the layout of the blog list to ensure the separator lines are visible and the spacing looks good.</p>
+                    <p>It's always good to have more than one item when designing a list view!</p>
+                </div>
+                    </article>
+
+                    <div class="border-t border-border-light pt-12 pb-12">
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                            <div class="md:col-span-2 text-xl leading-relaxed font-light">
+                                
+        <p class="mb-4">Adam Jaro is a multi-disciplinary creative based in London.</p>
+        <p>Specialising in creative direction, filmmaking and editing, his work combines a strong visual language with authentic, human-led storytelling.</p>
+    
+                            </div>
+                            <div class="space-y-4">
+                                <a href="#" class="block text-lg hover:underline email-inject">Email Loading...</a>
+                                <div class="flex space-x-4 pt-4">
+                                    <a href="https://www.linkedin.com/in/adamjaro" target="_blank" rel="noopener noreferrer" class="text-lg nav-link font-medium text-nav-link-color hover:opacity-70 transition-opacity">LinkedIn</a><a href="/blog/"  class="text-lg nav-link font-medium text-nav-link-color hover:opacity-70 transition-opacity">Blog</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="border-t border-border-light pt-10 mt-0">
+                        <a href="/" class="btn-pill nav-link">View my work →</a>
+                    </div>
+                </div>
+            </section>
+        
+    </main>
+    <!-- Global Footer -->
+    <footer
+        class="fixed bottom-0 left-0 w-full bg-white/60 dark:bg-[#111111]/60 backdrop-blur-md p-4 md:p-6 border-t border-border-light transition-colors duration-300 z-40">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center text-center md:text-left">
+            <div class="mb-2 md:mb-0"><a id="footer-email-link"
+                    class="text-base nav-link font-medium hover:underline"></a>
+                <p class="text-xs text-muted-text mt-1">© <span id="footer-year"></span> Adam Jaro. Creative
+                    Direction & Film.</p>
+            </div>
+            <div class="flex items-center space-x-6">
+                <div id="footer-social-links" class="flex space-x-4">
+                    <a href="https://www.linkedin.com/in/adamjaro" target="_blank" rel="noopener noreferrer" class="text-sm nav-link font-medium hover:opacity-70 transition-opacity">LinkedIn</a><a href="/blog/"  class="text-sm nav-link font-medium hover:opacity-70 transition-opacity">Blog</a>
+                </div><button id="theme-toggle" type="button"
+                    class="p-2 rounded-full text-muted-text hover:text-primary-text hover:bg-border-light transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-text"><span
+                        class="sr-only">Toggle dark mode</span><svg id="sun-icon" class="h-5 w-5" fill="none"
+                        viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+                    </svg><svg id="moon-icon" class="h-5 w-5 hidden" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                    </svg></button>
+            </div>
+        </div>
+    </footer>
+    <!-- Cookie Consent Banner -->
+    <div id="cookie-banner"
+        class="fixed bottom-4 right-4 max-w-sm w-[calc(100%-2rem)] bg-white/80 dark:bg-[#111111]/80 backdrop-blur-md border border-border-light p-6 rounded-sm shadow-lg z-50 transform transition-all duration-500 translate-y-full opacity-0">
+        <div class="flex flex-col space-y-4">
+            <div class="space-y-2">
+                <h3 class="text-lg font-bold font-display">Cookies & Privacy</h3>
+                <p class="text-sm text-muted-text leading-relaxed">
+                    We use cookies to ensure you get the best experience on our website.
+                    <a href="#privacy" class="underline hover:text-primary-text transition-colors">Learn more</a>.
+                </p>
+            </div>
+            <div class="flex space-x-3">
+                <button id="cookie-accept"
+                    class="flex-1 bg-primary-text text-page-bg px-4 py-2 text-sm font-bold rounded-sm hover:opacity-90 transition-opacity">
+                    Accept
+                </button>
+                <button id="cookie-decline"
+                    class="flex-1 bg-transparent border border-border-light text-primary-text px-4 py-2 text-sm font-bold rounded-sm hover:bg-border-light/50 transition-colors">
+                    Decline
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Script -->
+    <script type="module" src="../../script.js"></script>
+</body>
+
+</html>
