@@ -47,8 +47,8 @@
         rel="stylesheet">
 
     <!-- Styles are compiled at build time (Tailwind + src/style.css) -->
-    <link rel="stylesheet" href="/style.css?v=6f6c5a59">
-    <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Person","@id":"https://adamjaro.com/#person","name":"Adam Jaro","url":"https://adamjaro.com/","jobTitle":"Creative Director","description":"London-based creative director building brands, campaigns and the creative teams behind them, mostly in startups and scale-ups.","worksFor":{"@type":"Organization","name":"Kooth Digital Health"},"hasOccupation":{"@type":"Occupation","name":"Creative Lead"},"address":{"@type":"PostalAddress","addressLocality":"London","addressCountry":"GB"},"sameAs":["https://www.linkedin.com/in/adamjaro"],"knowsAbout":["Creative direction & brand strategy","Brand identity & systems","Integrated campaigns: TV, OOH, digital, social","Performance creative & paid social","Building and leading creative teams","Pitch, investor & board materials","AI-assisted design and build"],"award":["Brand Film Awards 2026, Winner: The Pretender (Kooth x The Diana Award)"]},{"@type":"WebSite","@id":"https://adamjaro.com/#website","url":"https://adamjaro.com/","name":"Adam Jaro","inLanguage":"en-GB","publisher":{"@id":"https://adamjaro.com/#person"}},{"@type":"ProfilePage","@id":"https://adamjaro.com/info/#page","url":"https://adamjaro.com/info/","name":"About Adam Jaro","isPartOf":{"@id":"https://adamjaro.com/#website"},"mainEntity":{"@id":"https://adamjaro.com/#person"}}]}</script>
+    <link rel="stylesheet" href="/style.css?v=67df8364">
+    <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Person","@id":"https://adamjaro.com/#person","name":"Adam Jaro","url":"https://adamjaro.com/","image":"https://adamjaro.com/images/adam-jaro.webp","jobTitle":"Creative Director","description":"London-based creative director building brands, campaigns and the creative teams behind them, mostly in startups and scale-ups.","worksFor":{"@type":"Organization","name":"Kooth Digital Health"},"hasOccupation":{"@type":"Occupation","name":"Creative Lead"},"address":{"@type":"PostalAddress","addressLocality":"London","addressCountry":"GB"},"sameAs":["https://www.linkedin.com/in/adamjaro"],"knowsAbout":["Creative direction & brand strategy","Brand identity & systems","Integrated campaigns: TV, OOH, digital, social","Performance creative & paid social","Building and leading creative teams","Pitch, investor & board materials","AI-assisted design and build"],"award":["Brand Film Awards 2026, Winner: The Pretender (Kooth x The Diana Award)"]},{"@type":"WebSite","@id":"https://adamjaro.com/#website","url":"https://adamjaro.com/","name":"Adam Jaro","inLanguage":"en-GB","publisher":{"@id":"https://adamjaro.com/#person"}},{"@type":"ProfilePage","@id":"https://adamjaro.com/info/#page","url":"https://adamjaro.com/info/","name":"About Adam Jaro","isPartOf":{"@id":"https://adamjaro.com/#website"},"mainEntity":{"@id":"https://adamjaro.com/#person"}}]}</script>
 </head>
 
 <body class="min-h-screen flex flex-col">
@@ -68,17 +68,20 @@
         <section id="page-info" class="page active">
             <div class="max-w-4xl mx-auto">
                 <div class="mb-8"><a href="/" class="btn-pill nav-link cursor-pointer">← Back to all projects</a></div>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
-                    <div id="info-bio" class="md:col-span-2 text-xl leading-relaxed font-light">
+                <div class="grid grid-cols-1 md:grid-cols-3 md:grid-rows-[auto_1fr] gap-12">
+                    <div class="md:col-start-3 md:row-start-1">
+                        <img src="/images/adam-jaro.webp" srcset="/images/adam-jaro-640.webp 640w, /images/adam-jaro.webp 937w" sizes="(min-width: 768px) 280px, 60vw" width="937" height="937" alt="Adam Jaro holding a Sony cinema camera on a shoot" class="w-3/5 md:w-full h-auto rounded-sm" fetchpriority="high" decoding="async">
+                    </div>
+                    <div id="info-bio" class="md:col-span-2 md:col-start-1 md:row-start-1 md:row-span-2 text-xl leading-relaxed font-light">
                         <h1 class="sr-only">About Adam Jaro</h1>
                         
-        <p class="mb-6">I'm a creative director in London. I got into this because I love making things. Ten years on I still do, I've just got better at convincing other people it was their idea.</p>
+        <p class="mb-6">I'm a creative director in London. I got into this because I love making things, and ten years on I still do.</p>
         <p class="mb-6">Most of my career has been in startups and scale-ups, usually as one of the first creative hires, working directly with the founder or CMO. At Fiit I directed the rebrand that helped grow sales 1.5x and took a national TV ad from brief to broadcast in two weeks. At MindLabs I built a team of six that shipped 1,500+ assets and tuned creative against performance data to a 5:1 ROI. I also co-founded an agency that passed £100k in its first year, working with Emilia Wickstead and the Royal Albert Hall.</p>
         <p class="mb-6">Now I'm Creative Lead at Kooth Digital Health: a company-wide brand refresh, national campaigns (including an award-winning one with The Diana Award), and the pitch and board decks most creative directors never touch.</p>
         <p>The job is the same wherever I am: set a clear creative bar, build the team and process that can hit it at speed, and stay hands-on enough to show what good looks like. I design, I direct, and I build things too. This site included, with Claude Code.</p>
     
                     </div>
-                    <div id="contact" class="space-y-4 scroll-mt-32">
+                    <div id="contact" class="space-y-4 scroll-mt-32 md:col-start-3 md:row-start-2">
                         <p class="text-sm uppercase tracking-wider text-muted-text">Contact</p>
                         <p class="text-base text-muted-text">For projects, collaborations, or just a conversation:</p>
                         <a href="#" class="block text-lg font-medium hover:underline email-inject">Email me</a>

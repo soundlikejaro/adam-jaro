@@ -289,3 +289,54 @@ h3,
 .video-facade:focus-visible .video-play {
     transform: translate(-50%, -50%) scale(1.08);
 }
+
+/* ---------- Signature gradient touches ---------- */
+/* Brand colours: --accent-a to --accent-b is the pink-to-orange used on buttons */
+:root {
+    --accent-a: #ea3367;
+    --accent-b: #e56e46;
+}
+
+::selection {
+    background: var(--accent-a);
+    color: #fff;
+}
+
+/* Underlined links get a pink underline instead of the text colour */
+a.underline,
+a:hover.hover\:underline,
+.project-text-block a,
+.email-inject {
+    text-decoration-color: var(--accent-a);
+    text-decoration-thickness: 2px;
+    text-underline-offset: 0.2em;
+}
+
+/* Bullet points in project results */
+.project-text-block ul li::marker {
+    color: var(--accent-a);
+}
+
+/* Keyboard focus ring */
+a:focus-visible,
+button:focus-visible {
+    outline: 2px solid var(--accent-a);
+    outline-offset: 3px;
+}
+
+/* Gradient text, for small highlights */
+.text-gradient {
+    background: linear-gradient(135deg, var(--accent-a) 0%, var(--accent-b) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+/* Header links pick up the gradient on hover */
+#main-header .nav-link:hover {
+    opacity: 1;
+    background: linear-gradient(135deg, var(--accent-a) 0%, var(--accent-b) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}

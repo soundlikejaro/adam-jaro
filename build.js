@@ -92,6 +92,7 @@ const personSchema = {
     '@id': PERSON_ID,
     name: 'Adam Jaro',
     url: `${SITE}/`,
+    image: `${SITE}${aboutInfo.photo.src}`,
     jobTitle: 'Creative Director',
     description: 'London-based creative director building brands, campaigns and the creative teams behind them, mostly in startups and scale-ups.',
     worksFor: { '@type': 'Organization', name: currentRole.org },
@@ -300,7 +301,8 @@ async function build() {
         <section id="page-home" class="page active">
             <div class="mb-8 md:mb-12 text-left md:text-center max-w-2xl mx-auto">
                 <h1 class="text-xl md:text-2xl font-light leading-snug">Creative director in London. I build brands, campaigns and the creative teams behind them, mostly in startups and scale-ups.</h1>
-                <p class="mt-4 text-sm text-muted-text">${aboutInfo.clients.slice(0, 7).join(' · ')}</p>
+                <p class="mt-5 text-lg md:text-xl font-light leading-snug text-muted-text">Ten years in, I still love making things. I've just got better at convincing people <span class="text-gradient font-normal">it was their idea.</span></p>
+                <p class="mt-5 text-sm text-muted-text">${aboutInfo.clients.slice(0, 7).join(' · ')}</p>
             </div>
             <div id="project-grid" class="grid grid-cols-1 sm:grid-cols-2 gap-2 items-start">
                 ${projects.map((project, i) => `
@@ -345,12 +347,15 @@ async function build() {
         <section id="page-info" class="page active">
             <div class="max-w-4xl mx-auto">
                 <div class="mb-8"><a href="/" class="btn-pill nav-link cursor-pointer">← Back to all projects</a></div>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
-                    <div id="info-bio" class="md:col-span-2 text-xl leading-relaxed font-light">
+                <div class="grid grid-cols-1 md:grid-cols-3 md:grid-rows-[auto_1fr] gap-12">
+                    <div class="md:col-start-3 md:row-start-1">
+                        ${img(aboutInfo.photo.src, { alt: aboutInfo.photo.alt, sizes: '(min-width: 768px) 280px, 60vw', cls: 'w-3/5 md:w-full h-auto rounded-sm', lazy: false, priority: true })}
+                    </div>
+                    <div id="info-bio" class="md:col-span-2 md:col-start-1 md:row-start-1 md:row-span-2 text-xl leading-relaxed font-light">
                         <h1 class="sr-only">About Adam Jaro</h1>
                         ${aboutInfo.bio}
                     </div>
-                    <div id="contact" class="space-y-4 scroll-mt-32">
+                    <div id="contact" class="space-y-4 scroll-mt-32 md:col-start-3 md:row-start-2">
                         <p class="text-sm uppercase tracking-wider text-muted-text">Contact</p>
                         <p class="text-base text-muted-text">${aboutInfo.contactIntro}</p>
                         ${aboutInfo.contact.map(item => {
