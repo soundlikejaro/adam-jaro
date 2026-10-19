@@ -404,6 +404,8 @@ async function build() {
                     <h2 class="text-sm uppercase tracking-wider text-muted-text mb-4">Selected clients &amp; brands</h2>
                     <p class="text-lg leading-relaxed">${aboutInfo.clients.join(' · ')}</p>
                 </div>
+
+                <p class="mt-16 text-xs text-muted-text">© <span id="footer-year">${new Date().getFullYear()}</span> Adam Jaro · <a href="/privacy/" class="hover:text-primary-text">Privacy</a></p>
             </div>
         </section>
     `;
