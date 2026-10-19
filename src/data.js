@@ -18,6 +18,11 @@ export const aboutInfo = {
         <p class="mb-6">Now I'm Creative Lead at Kooth Digital Health: a company-wide brand refresh, national campaigns (including an award-winning one with The Diana Award), and the pitch and board decks most creative directors never touch.</p>
         <p>The job is the same wherever I am: set a clear creative bar, build the team and process that can hit it at speed, and stay hands-on enough to show what good looks like. I design, I direct, and I build things too. This site included, with Claude Code.</p>
     `,
+    // Homepage intro. Each word fades from white into the brand gradient on load.
+    homeIntro: 'Creative director in London. I build brands, campaigns and the creative teams behind them, mostly in startups and scale-ups.',
+    // Optional second homepage line; leave empty to hide it.
+    // Previous: "Ten years in, I still love making things. I've just got better at convincing people it was their idea."
+    homeTagline: '',
     photo: { src: '/images/adam-jaro.webp', alt: 'Adam Jaro holding a Sony cinema camera on a shoot' },
     experience: [
         { role: 'Creative Lead', org: 'Kooth Digital Health', dates: '2024 – now' },

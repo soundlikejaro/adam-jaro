@@ -340,3 +340,27 @@ button:focus-visible {
     background-clip: text;
     color: transparent;
 }
+
+/* Homepage intro: each word fades from the text colour into one continuous gradient.
+   The gradient sits on the whole line (clipped to the text); each word starts solid
+   and turns transparent in turn, revealing it. */
+.intro-reveal {
+    background: linear-gradient(90deg, var(--accent-a) 15%, var(--accent-b) 85%);
+    -webkit-background-clip: text;
+    background-clip: text;
+}
+
+.intro-reveal span {
+    color: transparent;
+    animation: intro-word 0.7s ease-out both;
+    animation-delay: calc(0.4s + var(--i) * 0.07s);
+}
+
+@keyframes intro-word {
+    from { color: rgb(var(--color-primary-text)); }
+    to { color: transparent; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .intro-reveal span { animation: none; }
+}
