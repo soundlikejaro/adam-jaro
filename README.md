@@ -46,3 +46,7 @@ After making changes to any file in the `src/` folder, you must **rebuild** the 
 New YouTube/Vimeo videos get their thumbnail downloaded into `src/images/video/` on the next build. To refresh a thumbnail, delete its file there and rebuild.
 
 Each project in `src/data.js` has a short `kind` (e.g. `national TV ad`). It's used in page titles, structured data and `llms.txt`, so keep it plain and descriptive. An optional `award` field is added to the structured data.
+
+## Google Search Console
+
+`google66c58ea5f32efadb.html` in the root verifies the site in Google Search Console. Leave it in place: deleting it un-verifies the site.
