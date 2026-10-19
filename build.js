@@ -404,7 +404,7 @@ async function build() {
     `;
     await writePage(path.join(OUT_DIR, 'info', 'index.html'), infoContent, {
         title: 'About & contact | Adam Jaro, Creative Director',
-        description: 'Adam Jaro is a London-based creative director. Acting Head of Creative at Kooth; previously an early creative hire at Fiit and MindLabs, and agency co-founder.',
+        description: 'Adam Jaro is a London-based creative director. Creative Lead at Kooth; previously an early creative hire at Fiit and MindLabs, and agency co-founder.',
         url: `${SITE}/info/`,
         type: 'profile',
         schema: graph(personSchema, websiteSchema, {
