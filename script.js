@@ -45,6 +45,22 @@ document.addEventListener('DOMContentLoaded', () => {
     // Check initial scroll position
     handleScroll();
 
+    // --- Click-to-play videos ---
+    // Each video starts as a thumbnail link; the player only loads when pressed.
+    document.querySelectorAll('.video-facade').forEach(link => {
+        link.addEventListener('click', event => {
+            event.preventDefault();
+            const iframe = document.createElement('iframe');
+            iframe.src = link.dataset.embed;
+            iframe.title = link.dataset.title || 'Video';
+            iframe.allow = 'autoplay; fullscreen; picture-in-picture; encrypted-media';
+            iframe.allowFullscreen = true;
+            iframe.setAttribute('frameborder', '0');
+            link.replaceWith(iframe);
+            iframe.focus();
+        });
+    });
+
     // (Cookie banner removed: the site sets no tracking cookies. Theme choice is kept in localStorage.)
 
     // --- Footer Year & Email Injection ---

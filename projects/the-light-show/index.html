@@ -4,69 +4,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The light show - Adam Jaro</title>
+    <title>The light show: British Soft Drinks Association influencer event | Adam Jaro</title>
     <meta name="description" content="British Soft Drinks Association: The British Soft Drinks Association wanted younger audiences to take a fresh look at low- and no-sugar drinks.">
-    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="canonical" href="https://adamjaro.com/projects/the-light-show/">
+    
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
+    <!-- Open Graph -->
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Adam Jaro">
+    <meta property="og:locale" content="en_GB">
     <meta property="og:url" content="https://adamjaro.com/projects/the-light-show/">
-    <meta property="og:title" content="The light show - Adam Jaro">
+    <meta property="og:title" content="The light show: British Soft Drinks Association influencer event | Adam Jaro">
     <meta property="og:description" content="British Soft Drinks Association: The British Soft Drinks Association wanted younger audiences to take a fresh look at low- and no-sugar drinks.">
-    <meta property="og:image" content="https://adamjaro.com/images/thelightshow.webp">
+    <meta property="og:image" content="https://adamjaro.com/images/og/the-light-show.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="The light show, influencer event for British Soft Drinks Association">
 
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://adamjaro.com/projects/the-light-show/">
-    <meta property="twitter:title" content="The light show - Adam Jaro">
-    <meta property="twitter:description" content="British Soft Drinks Association: The British Soft Drinks Association wanted younger audiences to take a fresh look at low- and no-sugar drinks.">
-    <meta property="twitter:image" content="https://adamjaro.com/images/thelightshow.webp">
-
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Twitter / X -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="The light show: British Soft Drinks Association influencer event | Adam Jaro">
+    <meta name="twitter:description" content="British Soft Drinks Association: The British Soft Drinks Association wanted younger audiences to take a fresh look at low- and no-sugar drinks.">
+    <meta name="twitter:image" content="https://adamjaro.com/images/og/the-light-show.jpg">
 
     <!-- No-Flash Theme Script -->
     <script>
-        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-            document.documentElement.classList.add('dark');
-        } else {
-            document.documentElement.classList.remove('dark');
-        }
+        try {
+            if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                document.documentElement.classList.add('dark');
+            }
+        } catch (e) {}
     </script>
 
     <script>window.siteConfig = {"emailUser":"hello","emailDomain":"adamjaro.com"};</script>
 
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        display: ['Space Grotesk', 'sans-serif'], // New display font
-                    },
-                    colors: {
-                        'primary-text': 'rgb(var(--color-primary-text) / <alpha-value>)',
-                        'muted-text': 'rgb(var(--color-muted-text) / <alpha-value>)',
-                        'page-bg': 'rgb(var(--color-page-bg) / <alpha-value>)',
-                        'border-light': 'rgb(var(--color-border-light) / <alpha-value>)',
-                        'overlay-bg': 'rgb(var(--color-overlay-bg) / <alpha-value>)', // Overlay already has alpha, so we might need special handling or just keep it as is if it's not used with opacity modifiers
-                        'nav-link-color': 'rgb(var(--color-nav-link) / <alpha-value>)',
-                    }
-                }
-            }
-        }
-    </script>
-
-    <!-- Google Fonts - Inter & Outfit -->
+    <!-- Fonts: one variable file per family covers every weight used -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400..700&family=Space+Grotesk:wght@300..700&display=swap"
         rel="stylesheet">
 
-    <link rel="stylesheet" href="../../style.css">
-    
+    <!-- Styles are compiled at build time (Tailwind + src/style.css) -->
+    <link rel="stylesheet" href="/style.css?v=4939ce83">
+    <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"CreativeWork","@id":"https://adamjaro.com/projects/the-light-show/#work","name":"The light show","url":"https://adamjaro.com/projects/the-light-show/","description":"The British Soft Drinks Association wanted younger audiences to take a fresh look at low- and no-sugar drinks.","genre":"influencer event","image":"https://adamjaro.com/images/og/the-light-show.jpg","creator":{"@id":"https://adamjaro.com/#person"},"sponsor":[{"@type":"Organization","name":"British Soft Drinks Association"}],"isPartOf":{"@id":"https://adamjaro.com/#website"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Work","item":"https://adamjaro.com/"},{"@type":"ListItem","position":2,"name":"The light show","item":"https://adamjaro.com/projects/the-light-show/"}]},{"@type":"Person","@id":"https://adamjaro.com/#person","name":"Adam Jaro","url":"https://adamjaro.com/","jobTitle":"Creative Director","description":"London-based creative director building brands, campaigns and the creative teams behind them, mostly in startups and scale-ups.","worksFor":{"@type":"Organization","name":"Kooth Digital Health"},"hasOccupation":{"@type":"Occupation","name":"Acting Head of Creative"},"address":{"@type":"PostalAddress","addressLocality":"London","addressCountry":"GB"},"sameAs":["https://www.linkedin.com/in/adamjaro"],"knowsAbout":["Creative direction & brand strategy","Brand identity & systems","Integrated campaigns: TV, OOH, digital, social","Performance creative & paid social","Building and leading creative teams","Pitch, investor & board materials","AI-assisted design and build"],"award":["Brand Film Awards 2026, Winner: The Pretender (Kooth x The Diana Award)"]}]}</script>
 </head>
 
 <body class="min-h-screen flex flex-col">
@@ -95,7 +77,12 @@
                     <article class="space-y-8 md:space-y-12">
                         <div class="project-text-block text-lg leading-relaxed max-w-prose">
                     <p>The British Soft Drinks Association wanted younger audiences to take a fresh look at low- and no-sugar drinks. Health messaging from an industry body is an easy thing to be sceptical about, so it had to come from people that audience already trusts.</p>
-                </div><div class="video-responsive-vertical project-media-item rounded-sm overflow-hidden"><iframe src="https://player.vimeo.com/video/1139982703?title=0&byline=0&portrait=0" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe></div><div class="project-text-block text-lg leading-relaxed max-w-prose">
+                </div><div class="video-responsive-vertical project-media-item rounded-sm overflow-hidden">
+                <a href="https://vimeo.com/1139982703" class="video-facade" data-embed="https://player.vimeo.com/video/1139982703?autoplay=1&title=0&byline=0&portrait=0&dnt=1" data-title="The light show, British Soft Drinks Association" aria-label="Play video: The light show, British Soft Drinks Association">
+                    <img src="/images/video/vimeo-1139982703.webp" srcset="/images/video/vimeo-1139982703-640.webp 640w, /images/video/vimeo-1139982703.webp 960w" sizes="(min-width: 768px) 350px, 100vw" width="960" height="1707" alt="" class="" decoding="async">
+                    <span class="video-play" aria-hidden="true"></span>
+                </a>
+            </div><div class="project-text-block text-lg leading-relaxed max-w-prose">
                     <p><strong>What I did</strong></p>
                     <p>I led the creative direction for the campaign and the event at its centre, working alongside a PR agency. The Light Show was a one-day event for around 30 creators, in a venue built around games and interactive installations, so they had things worth posting about.</p>
                     <p>I wrote the influencer briefs and content guidelines to keep the message on track without scripting anyone, and ran a film crew on the day to produce edits for BSDA's own channels.</p>
@@ -108,11 +95,11 @@
                         <p class="text-muted-text">Want to talk about work like this?</p>
                         <a href="#" class="font-medium hover:underline email-inject">Email me</a>
                     </div>
-                    
+
                     
                     <div class="mt-12 mb-4">
                         <a href="/projects/together-we-create-the-amazing/" class="btn-pill-rich nav-link cursor-pointer">
-                            <img src="/images/RAHA.webp" alt="Next Project">
+                            <img src="/images/RAHA.webp" srcset="/images/RAHA-640.webp 640w, /images/RAHA-960.webp 960w, /images/RAHA-1600.webp 1600w, /images/RAHA.webp 1920w" sizes="48px" width="1920" height="1502" alt="" class="" loading="lazy" decoding="async">
                             <span class="content">
                                 <span class="label">Next Project</span>
                                 <span class="title">Together, we create the amazing</span>
@@ -152,7 +139,7 @@
         </div>
     </footer>
     <!-- Main Script -->
-    <script type="module" src="../../script.js"></script>
+    <script type="module" src="/script.js?v=9df44e2d"></script>
 </body>
 
 </html>

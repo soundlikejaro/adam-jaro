@@ -4,69 +4,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Move - Adam Jaro</title>
+    <title>Your Move: Kooth youth mental health campaign | Adam Jaro</title>
     <meta name="description" content="Kooth: Mental health campaigns aimed at teenagers tend to sound the same, and teenagers tune them out.">
-    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="canonical" href="https://adamjaro.com/projects/your-move/">
+    
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
+    <!-- Open Graph -->
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Adam Jaro">
+    <meta property="og:locale" content="en_GB">
     <meta property="og:url" content="https://adamjaro.com/projects/your-move/">
-    <meta property="og:title" content="Your Move - Adam Jaro">
+    <meta property="og:title" content="Your Move: Kooth youth mental health campaign | Adam Jaro">
     <meta property="og:description" content="Kooth: Mental health campaigns aimed at teenagers tend to sound the same, and teenagers tune them out.">
-    <meta property="og:image" content="https://adamjaro.com/images/yourmove1.webp">
+    <meta property="og:image" content="https://adamjaro.com/images/og/your-move.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Your Move, youth mental health campaign for Kooth">
 
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://adamjaro.com/projects/your-move/">
-    <meta property="twitter:title" content="Your Move - Adam Jaro">
-    <meta property="twitter:description" content="Kooth: Mental health campaigns aimed at teenagers tend to sound the same, and teenagers tune them out.">
-    <meta property="twitter:image" content="https://adamjaro.com/images/yourmove1.webp">
-
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Twitter / X -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Your Move: Kooth youth mental health campaign | Adam Jaro">
+    <meta name="twitter:description" content="Kooth: Mental health campaigns aimed at teenagers tend to sound the same, and teenagers tune them out.">
+    <meta name="twitter:image" content="https://adamjaro.com/images/og/your-move.jpg">
 
     <!-- No-Flash Theme Script -->
     <script>
-        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-            document.documentElement.classList.add('dark');
-        } else {
-            document.documentElement.classList.remove('dark');
-        }
+        try {
+            if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                document.documentElement.classList.add('dark');
+            }
+        } catch (e) {}
     </script>
 
     <script>window.siteConfig = {"emailUser":"hello","emailDomain":"adamjaro.com"};</script>
 
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        display: ['Space Grotesk', 'sans-serif'], // New display font
-                    },
-                    colors: {
-                        'primary-text': 'rgb(var(--color-primary-text) / <alpha-value>)',
-                        'muted-text': 'rgb(var(--color-muted-text) / <alpha-value>)',
-                        'page-bg': 'rgb(var(--color-page-bg) / <alpha-value>)',
-                        'border-light': 'rgb(var(--color-border-light) / <alpha-value>)',
-                        'overlay-bg': 'rgb(var(--color-overlay-bg) / <alpha-value>)', // Overlay already has alpha, so we might need special handling or just keep it as is if it's not used with opacity modifiers
-                        'nav-link-color': 'rgb(var(--color-nav-link) / <alpha-value>)',
-                    }
-                }
-            }
-        }
-    </script>
-
-    <!-- Google Fonts - Inter & Outfit -->
+    <!-- Fonts: one variable file per family covers every weight used -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400..700&family=Space+Grotesk:wght@300..700&display=swap"
         rel="stylesheet">
 
-    <link rel="stylesheet" href="../../style.css">
-    
+    <!-- Styles are compiled at build time (Tailwind + src/style.css) -->
+    <link rel="stylesheet" href="/style.css?v=4939ce83">
+    <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"CreativeWork","@id":"https://adamjaro.com/projects/your-move/#work","name":"Your Move","url":"https://adamjaro.com/projects/your-move/","description":"Mental health campaigns aimed at teenagers tend to sound the same, and teenagers tune them out.","genre":"youth mental health campaign","image":"https://adamjaro.com/images/og/your-move.jpg","creator":{"@id":"https://adamjaro.com/#person"},"sponsor":[{"@type":"Organization","name":"Kooth"}],"isPartOf":{"@id":"https://adamjaro.com/#website"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Work","item":"https://adamjaro.com/"},{"@type":"ListItem","position":2,"name":"Your Move","item":"https://adamjaro.com/projects/your-move/"}]},{"@type":"Person","@id":"https://adamjaro.com/#person","name":"Adam Jaro","url":"https://adamjaro.com/","jobTitle":"Creative Director","description":"London-based creative director building brands, campaigns and the creative teams behind them, mostly in startups and scale-ups.","worksFor":{"@type":"Organization","name":"Kooth Digital Health"},"hasOccupation":{"@type":"Occupation","name":"Acting Head of Creative"},"address":{"@type":"PostalAddress","addressLocality":"London","addressCountry":"GB"},"sameAs":["https://www.linkedin.com/in/adamjaro"],"knowsAbout":["Creative direction & brand strategy","Brand identity & systems","Integrated campaigns: TV, OOH, digital, social","Performance creative & paid social","Building and leading creative teams","Pitch, investor & board materials","AI-assisted design and build"],"award":["Brand Film Awards 2026, Winner: The Pretender (Kooth x The Diana Award)"]}]}</script>
 </head>
 
 <body class="min-h-screen flex flex-col">
@@ -97,26 +79,26 @@
                     <p>Mental health campaigns aimed at teenagers tend to sound the same, and teenagers tune them out. Your Move was Kooth's campaign to reach young people in schools and online with something that felt like it was made for them, not at them.</p>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4 project-media-item">
-                    <img src="/images/yourmove1.webp" alt="Detail image 1" class="w-full h-auto rounded-sm" loading="lazy">
-                    <img src="/images/yourmove2.webp" alt="Detail image 2" class="w-full h-auto rounded-sm" loading="lazy">
+                    <img src="/images/yourmove1.webp" srcset="/images/yourmove1-640.webp 640w, /images/yourmove1-960.webp 960w, /images/yourmove1-1600.webp 1600w, /images/yourmove1.webp 1920w" sizes="(min-width: 768px) 448px, 100vw" width="1920" height="1501" alt="Your Move, youth mental health campaign for Kooth" class="w-full h-auto rounded-sm" decoding="async">
+                    <img src="/images/yourmove2.webp" srcset="/images/yourmove2-640.webp 640w, /images/yourmove2-960.webp 960w, /images/yourmove2-1600.webp 1600w, /images/yourmove2.webp 1920w" sizes="(min-width: 768px) 448px, 100vw" width="1920" height="1501" alt="Your Move, youth mental health campaign for Kooth" class="w-full h-auto rounded-sm" loading="lazy" decoding="async">
                 </div><div class="project-text-block text-lg leading-relaxed max-w-prose">
                     <p><strong>What I did</strong></p>
                     <p>I set the creative strategy and built the campaign identity, then made the case internally for going much bolder than Kooth's usual look. Once that was agreed, I led the design and production work across print, digital, merchandise and in-school activations, keeping one clear idea running through every format.</p>
                     <p>The bold graphics and direct language were a deliberate bet: a health brand can be trusted and still feel like it belongs to the audience it's talking to.</p>
                     <p><strong>Result</strong></p>
                     <ul><li>Rolled out nationally across schools, digital and social</li><li>Put printed materials and activations in front of tens of thousands of students</li><li>Gave Kooth a more confident voice with young people</li></ul>
-                </div><img src="/images/yourmove3.webp" alt="Content image" class="w-full h-auto project-media-item rounded-sm" loading="lazy">
+                </div><img src="/images/yourmove3.webp" srcset="/images/yourmove3-640.webp 640w, /images/yourmove3-960.webp 960w, /images/yourmove3-1600.webp 1600w, /images/yourmove3.webp 1920w" sizes="(min-width: 896px) 896px, 100vw" width="1920" height="1212" alt="Your Move, youth mental health campaign for Kooth" class="w-full h-auto project-media-item rounded-sm" loading="lazy" decoding="async">
                     </article>
 
                     <div class="mt-16 pt-10 border-t border-border-light text-lg">
                         <p class="text-muted-text">Want to talk about work like this?</p>
                         <a href="#" class="font-medium hover:underline email-inject">Email me</a>
                     </div>
-                    
+
                     
                     <div class="mt-12 mb-4">
                         <a href="/projects/join-the-mental-health-revolution/" class="btn-pill-rich nav-link cursor-pointer">
-                            <img src="/images/mindlabs.webp" alt="Next Project">
+                            <img src="/images/mindlabs.webp" srcset="/images/mindlabs-640.webp 640w, /images/mindlabs-960.webp 960w, /images/mindlabs-1600.webp 1600w, /images/mindlabs.webp 1920w" sizes="48px" width="1920" height="1502" alt="" class="" loading="lazy" decoding="async">
                             <span class="content">
                                 <span class="label">Next Project</span>
                                 <span class="title">Join the mental health revolution</span>
@@ -156,7 +138,7 @@
         </div>
     </footer>
     <!-- Main Script -->
-    <script type="module" src="../../script.js"></script>
+    <script type="module" src="/script.js?v=9df44e2d"></script>
 </body>
 
 </html>

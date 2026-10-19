@@ -30,11 +30,19 @@ Open `src/data.js` and look for the `aboutInfo` object at the bottom. You can up
 
 After making changes to any file in the `src/` folder, you must **rebuild** the site for the changes to take effect.
 
-1.  Open your terminal.
-2.  Navigate to the project folder.
+1.  Open your terminal and go to the project folder.
+2.  The first time only, install the build tools: `npm install`
 3.  Run the build command:
     ```bash
     npm run build
     ```
-4.  This will regenerate all the HTML files in the root directory.
-5.  You can now open `index.html` to see your changes.
+4.  This regenerates all the HTML files in the root directory, plus:
+    - `style.css`, compiled from Tailwind and `src/style.css` (edit `src/style.css`, never the root one)
+    - resized copies of every image in `src/images` (`-640`, `-960`, `-1600`)
+    - social share images in `images/og/`
+    - `sitemap.xml`, `robots.txt`, `llms.txt` and `404.html`
+5.  Commit and push. GitHub Pages serves the root folder.
+
+New YouTube/Vimeo videos get their thumbnail downloaded into `src/images/video/` on the next build. To refresh a thumbnail, delete its file there and rebuild.
+
+Each project in `src/data.js` has a short `kind` (e.g. `national TV ad`). It's used in page titles, structured data and `llms.txt`, so keep it plain and descriptive. An optional `award` field is added to the structured data.

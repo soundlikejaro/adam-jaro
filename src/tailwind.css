@@ -1,0 +1,5 @@
+/* Build entry point. Edit custom styles in style.css, not here. */
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "./style.css";
+@import "tailwindcss/utilities";

@@ -4,69 +4,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Unwind - Adam Jaro</title>
+    <title>Unwind: MindLabs breathwork and meditation series | Adam Jaro</title>
     <meta name="description" content="MindLabs: At MindLabs, content was the product as well as the marketing.">
-    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="canonical" href="https://adamjaro.com/projects/unwind/">
+    
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
+    <!-- Open Graph -->
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Adam Jaro">
+    <meta property="og:locale" content="en_GB">
     <meta property="og:url" content="https://adamjaro.com/projects/unwind/">
-    <meta property="og:title" content="Unwind - Adam Jaro">
+    <meta property="og:title" content="Unwind: MindLabs breathwork and meditation series | Adam Jaro">
     <meta property="og:description" content="MindLabs: At MindLabs, content was the product as well as the marketing.">
-    <meta property="og:image" content="https://adamjaro.com/images/unwind.webp">
+    <meta property="og:image" content="https://adamjaro.com/images/og/unwind.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Unwind, breathwork and meditation series for MindLabs">
 
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://adamjaro.com/projects/unwind/">
-    <meta property="twitter:title" content="Unwind - Adam Jaro">
-    <meta property="twitter:description" content="MindLabs: At MindLabs, content was the product as well as the marketing.">
-    <meta property="twitter:image" content="https://adamjaro.com/images/unwind.webp">
-
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Twitter / X -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Unwind: MindLabs breathwork and meditation series | Adam Jaro">
+    <meta name="twitter:description" content="MindLabs: At MindLabs, content was the product as well as the marketing.">
+    <meta name="twitter:image" content="https://adamjaro.com/images/og/unwind.jpg">
 
     <!-- No-Flash Theme Script -->
     <script>
-        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-            document.documentElement.classList.add('dark');
-        } else {
-            document.documentElement.classList.remove('dark');
-        }
+        try {
+            if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                document.documentElement.classList.add('dark');
+            }
+        } catch (e) {}
     </script>
 
     <script>window.siteConfig = {"emailUser":"hello","emailDomain":"adamjaro.com"};</script>
 
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        display: ['Space Grotesk', 'sans-serif'], // New display font
-                    },
-                    colors: {
-                        'primary-text': 'rgb(var(--color-primary-text) / <alpha-value>)',
-                        'muted-text': 'rgb(var(--color-muted-text) / <alpha-value>)',
-                        'page-bg': 'rgb(var(--color-page-bg) / <alpha-value>)',
-                        'border-light': 'rgb(var(--color-border-light) / <alpha-value>)',
-                        'overlay-bg': 'rgb(var(--color-overlay-bg) / <alpha-value>)', // Overlay already has alpha, so we might need special handling or just keep it as is if it's not used with opacity modifiers
-                        'nav-link-color': 'rgb(var(--color-nav-link) / <alpha-value>)',
-                    }
-                }
-            }
-        }
-    </script>
-
-    <!-- Google Fonts - Inter & Outfit -->
+    <!-- Fonts: one variable file per family covers every weight used -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400..700&family=Space+Grotesk:wght@300..700&display=swap"
         rel="stylesheet">
 
-    <link rel="stylesheet" href="../../style.css">
-    
+    <!-- Styles are compiled at build time (Tailwind + src/style.css) -->
+    <link rel="stylesheet" href="/style.css?v=4939ce83">
+    <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"CreativeWork","@id":"https://adamjaro.com/projects/unwind/#work","name":"Unwind","url":"https://adamjaro.com/projects/unwind/","description":"At MindLabs, content was the product as well as the marketing.","genre":"breathwork and meditation series","image":"https://adamjaro.com/images/og/unwind.jpg","creator":{"@id":"https://adamjaro.com/#person"},"sponsor":[{"@type":"Organization","name":"MindLabs"}],"isPartOf":{"@id":"https://adamjaro.com/#website"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Work","item":"https://adamjaro.com/"},{"@type":"ListItem","position":2,"name":"Unwind","item":"https://adamjaro.com/projects/unwind/"}]},{"@type":"Person","@id":"https://adamjaro.com/#person","name":"Adam Jaro","url":"https://adamjaro.com/","jobTitle":"Creative Director","description":"London-based creative director building brands, campaigns and the creative teams behind them, mostly in startups and scale-ups.","worksFor":{"@type":"Organization","name":"Kooth Digital Health"},"hasOccupation":{"@type":"Occupation","name":"Acting Head of Creative"},"address":{"@type":"PostalAddress","addressLocality":"London","addressCountry":"GB"},"sameAs":["https://www.linkedin.com/in/adamjaro"],"knowsAbout":["Creative direction & brand strategy","Brand identity & systems","Integrated campaigns: TV, OOH, digital, social","Performance creative & paid social","Building and leading creative teams","Pitch, investor & board materials","AI-assisted design and build"],"award":["Brand Film Awards 2026, Winner: The Pretender (Kooth x The Diana Award)"]}]}</script>
 </head>
 
 <body class="min-h-screen flex flex-col">
@@ -95,7 +77,12 @@
                     <article class="space-y-8 md:space-y-12">
                         <div class="project-text-block text-lg leading-relaxed max-w-prose">
                     <p>At MindLabs, content was the product as well as the marketing. Most meditation content is interchangeable, so we wanted series that felt distinct enough to be a reason to choose the app.</p>
-                </div><div class="video-responsive-vertical project-media-item rounded-sm overflow-hidden"><iframe src="https://player.vimeo.com/video/1139986546?title=0&byline=0&portrait=0" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe></div><div class="project-text-block text-lg leading-relaxed max-w-prose">
+                </div><div class="video-responsive-vertical project-media-item rounded-sm overflow-hidden">
+                <a href="https://vimeo.com/1139986546" class="video-facade" data-embed="https://player.vimeo.com/video/1139986546?autoplay=1&title=0&byline=0&portrait=0&dnt=1" data-title="Unwind, MindLabs" aria-label="Play video: Unwind, MindLabs">
+                    <img src="/images/video/vimeo-1139986546.webp" srcset="/images/video/vimeo-1139986546-640.webp 640w, /images/video/vimeo-1139986546.webp 960w" sizes="(min-width: 768px) 350px, 100vw" width="960" height="1707" alt="" class="" decoding="async">
+                    <span class="video-play" aria-hidden="true"></span>
+                </a>
+            </div><div class="project-text-block text-lg leading-relaxed max-w-prose">
                     <p><strong>What I did</strong></p>
                     <p>I led the creative vision for two flagship series: Unwind (breathwork) and Five Senses (meditation). I worked with sound artists on bespoke soundscapes and directed shoots in remote locations, including a 300-year-old abandoned mine in Wales for Unwind.</p>
                     <p>The challenge was keeping ambitious productions simple and calming for the person using them, and making them repeatable enough to run as series alongside everything else my team was producing.</p>
@@ -108,7 +95,7 @@
                         <p class="text-muted-text">Want to talk about work like this?</p>
                         <a href="#" class="font-medium hover:underline email-inject">Email me</a>
                     </div>
-                    
+
                     
                     <div class="mt-12 mb-8"><a href="/" class="btn-pill nav-link cursor-pointer">← Back to all projects</a></div>
                     
@@ -143,7 +130,7 @@
         </div>
     </footer>
     <!-- Main Script -->
-    <script type="module" src="../../script.js"></script>
+    <script type="module" src="/script.js?v=9df44e2d"></script>
 </body>
 
 </html>

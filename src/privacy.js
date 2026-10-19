@@ -22,7 +22,7 @@ export const privacyPolicy = `
     </ul>
 
     <h4 class="text-xl font-bold mb-2">4. Cookies</h4>
-    <p class="mb-4">This site does not use tracking or advertising cookies. If you switch between light and dark mode, that preference is saved in your browser's local storage so it's remembered next time. Embedded videos from YouTube and Vimeo may set their own cookies under their own privacy policies.</p>
+    <p class="mb-4">This site does not use tracking or advertising cookies. If you switch between light and dark mode, that preference is saved in your browser's local storage so it's remembered next time. Videos from YouTube and Vimeo only load when you press play. YouTube videos use its privacy-enhanced mode; once a video is playing, YouTube or Vimeo may set their own cookies under their own privacy policies.</p>
     
     <h4 class="text-xl font-bold mb-2">5. Contact Details</h4>
     <p class="mb-4">If you have any questions about this privacy policy or our privacy practices, please contact us via email.</p>

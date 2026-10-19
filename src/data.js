@@ -63,6 +63,8 @@ export const projects = [
     {
         title: 'The Pretender',
         category: 'Kooth x The Diana Award',
+        kind: 'campaign film',
+        award: 'Brand Film Awards 2026, Winner',
         thumbnail: '/images/thepretender.webp',
         content: [
             {
@@ -90,6 +92,7 @@ export const projects = [
     {
         title: 'Your Move',
         category: 'Kooth',
+        kind: 'youth mental health campaign',
         thumbnail: '/images/yourmove1.webp',
         content: [
             {
@@ -122,6 +125,7 @@ export const projects = [
     {
         title: 'Join the mental health revolution',
         category: 'MindLabs',
+        kind: 'launch film',
         thumbnail: '/images/mindlabs.webp',
         content: [
             {
@@ -149,6 +153,7 @@ export const projects = [
     {
         title: 'Bring the gym home',
         category: 'Fiit',
+        kind: 'national TV ad',
         thumbnail: '/images/bringthegymhome.webp',
         content: [
             {
@@ -176,6 +181,7 @@ export const projects = [
     {
         title: 'The light show',
         category: 'British Soft Drinks Association',
+        kind: 'influencer event',
         thumbnail: '/images/thelightshow.webp',
         content: [
             {
@@ -204,6 +210,7 @@ export const projects = [
     {
         title: 'Together, we create the amazing',
         category: 'Royal Albert Hall America',
+        kind: 'fundraising film',
         thumbnail: '/images/RAHA.webp',
         content: [
             {
@@ -231,6 +238,7 @@ export const projects = [
     {
         title: 'London fashion week SS24',
         category: 'Emilia Wickstead',
+        kind: 'show livestream',
         thumbnail: '/images/LFW24.webp',
         content: [
             {
@@ -263,6 +271,7 @@ export const projects = [
     {
         title: 'Hussle x Fiit',
         category: 'Hussle x Fiit',
+        kind: 'partnership launch film',
         thumbnail: '/images/HusslexFiit.webp',
         content: [
             {
@@ -290,6 +299,7 @@ export const projects = [
     {
         title: 'Here comes trouble',
         category: 'Trouble Club',
+        kind: 'brand campaign',
         thumbnail: '/images/herecomestrouble.webp',
         content: [
             {
@@ -321,6 +331,7 @@ export const projects = [
     {
         title: 'Unwind',
         category: 'MindLabs',
+        kind: 'breathwork and meditation series',
         thumbnail: '/images/unwind.webp',
         content: [
             {
