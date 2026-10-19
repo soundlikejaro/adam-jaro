@@ -17,6 +17,26 @@ function generateSlug(text) {
         .replace(/\-\-+/g, '-');     // Replace multiple - with single -
 }
 
+// Plain-text summary of a project (first paragraph), for meta descriptions and alt text
+function projectSummary(project) {
+    const first = project.content.find(c => c.type === 'text');
+    if (!first) return `${project.title} - ${project.category}`;
+    const text = first.body.replace(/<[^>]*>/g, ' ').replace(/&rsquo;/g, '’').replace(/&ldquo;|&rdquo;/g, '"').replace(/&nbsp;/g, ' ').replace(/\s+/g, ' ').trim();
+    const firstSentence = text.split(/(?<=[.!?])\s/)[0];
+    return firstSentence.length > 160 ? firstSentence.substring(0, 157).trim() + '...' : firstSentence;
+}
+
+const personSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    name: 'Adam Jaro',
+    jobTitle: 'Creative Director',
+    url: 'https://adamjaro.com/',
+    address: { '@type': 'PostalAddress', addressLocality: 'London', addressCountry: 'GB' },
+    sameAs: ['https://www.linkedin.com/in/adamjaro'],
+    knowsAbout: ['Creative direction', 'Brand strategy', 'Advertising', 'Performance creative', 'Creative leadership']
+};
+
 // Generate IDs/Slugs
 projects.forEach(p => p.id = generateSlug(p.title));
 blogPosts.forEach(p => p.slug = generateSlug(p.title));
@@ -60,8 +80,9 @@ async function build() {
             .replace('{{footer_social}}', socialLinksHtml)
             .replace(/{{root}}/g, relativeRoot)
             .replace('{{site_config}}', `<script>window.siteConfig = ${JSON.stringify(siteConfig)};</script>`)
-            .replace(/{{meta_title}}/g, meta.title || 'Adam Jaro - Creative Director')
-            .replace(/{{meta_description}}/g, meta.description || 'Multi-disciplinary creative director based in London.')
+            .replace('{{structured_data}}', meta.schema ? `<script type="application/ld+json">${JSON.stringify(meta.schema)}</script>` : '')
+            .replace(/{{meta_title}}/g, meta.title || 'Adam Jaro - Creative Director, London')
+            .replace(/{{meta_description}}/g, meta.description || 'Adam Jaro is a London-based creative director building brands, campaigns and creative teams.')
             .replace(/{{meta_url}}/g, meta.url || 'https://adamjaro.com/')
             .replace(/{{meta_image}}/g, meta.image || 'https://adamjaro.com/images/herecomestrouble.webp');
 
@@ -72,22 +93,23 @@ async function build() {
     // --- 1. Home Page ---
     const homeContent = `
         <section id="page-home" class="page active">
-            <div class="mb-6 md:mb-8 text-left md:text-center max-w-2xl mx-auto">
-                <p class="text-lg md:text-xl text-muted-text font-light">Creative director. Brand & advertising. London, UK.</p>
+            <div class="mb-8 md:mb-12 text-left md:text-center max-w-2xl mx-auto">
+                <h1 class="text-xl md:text-2xl font-light leading-snug">Creative director in London. I build brands, campaigns and the creative teams behind them, mostly in startups and scale-ups.</h1>
+                <p class="mt-4 text-sm text-muted-text">${aboutInfo.clients.slice(0, 7).join(' · ')}</p>
             </div>
             <div id="project-grid" class="grid grid-cols-1 sm:grid-cols-2 gap-2 items-start">
-                ${projects.map(project => `
-                    <div class="group relative cursor-pointer project-thumbnail" onclick="window.location.href='/projects/${project.id}/'">
+                ${projects.map((project, i) => `
+                    <a href="/projects/${project.id}/" class="group relative block project-thumbnail" aria-label="${project.title}, ${project.category}">
                         <div class="relative overflow-hidden aspect-[4/3]">
-                            <img src="${project.thumbnail}" alt="${project.title}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
-                            <div class="project-thumbnail-desktop-overlay absolute inset-0 bg-overlay-bg/90 p-6 flex flex-col justify-end opacity-0 transition-opacity duration-300 md:group-hover:opacity-100">
-                                <h3 class="text-xl font-bold text-primary-text mb-1">${project.title}</h3>
+                            <img src="${project.thumbnail}" alt="${projectSummary(project).replace(/"/g, '&quot;')}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"${i > 3 ? ' loading="lazy"' : ''}>
+                            <div class="project-thumbnail-desktop-overlay absolute inset-0 bg-overlay-bg/90 p-6 flex flex-col justify-end opacity-0 transition-opacity duration-300 md:group-hover:opacity-100 md:group-focus-visible:opacity-100" aria-hidden="true">
+                                <p class="text-xl font-bold text-primary-text mb-1">${project.title}</p>
                                 <p class="text-sm text-muted-text uppercase tracking-wider">${project.category}</p>
                             </div>
                         </div>
-                    </div>
-                    <div class="project-thumbnail-mobile-title p-4 md:hidden">
-                        <h3 class="text-lg font-bold">${project.title}</h3>
+                    </a>
+                    <div class="project-thumbnail-mobile-title p-4 md:hidden" aria-hidden="true">
+                        <p class="text-lg font-bold">${project.title}</p>
                         <p class="text-sm text-muted-text">${project.category}</p>
                     </div>
                 `).join('')}
@@ -95,27 +117,32 @@ async function build() {
         </section>
     `;
     await writePage(path.join(OUT_DIR, 'index.html'), homeContent, {
-        title: 'Adam Jaro - Creative Director',
-        description: 'Creative director based in London. Brand & advertising.',
-        url: 'https://adamjaro.com/'
+        title: 'Adam Jaro - Creative Director, London',
+        description: 'Adam Jaro is a London-based creative director building brands, campaigns and creative teams for startups and scale-ups.',
+        url: 'https://adamjaro.com/',
+        schema: personSchema
     });
 
     // --- 2. Info Page ---
+    const emailLink = (cls) => `<a href="#" class="${cls} email-inject">Email me</a>`;
     const infoContent = `
         <section id="page-info" class="page active">
             <div class="max-w-4xl mx-auto">
                 <div class="mb-8"><a href="/" class="btn-pill nav-link cursor-pointer">← Back to all projects</a></div>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
                     <div id="info-bio" class="md:col-span-2 text-xl leading-relaxed font-light">
+                        <h1 class="sr-only">About Adam Jaro</h1>
                         ${aboutInfo.bio}
                     </div>
-                    <div id="info-contact" class="space-y-4">
+                    <div id="contact" class="space-y-4 scroll-mt-32">
+                        <p class="text-sm uppercase tracking-wider text-muted-text">Contact</p>
+                        <p class="text-base text-muted-text">${aboutInfo.contactIntro}</p>
                         ${aboutInfo.contact.map(item => {
-        if (item.type === 'email-placeholder') return `<a href="#" class="block text-lg hover:underline email-inject">Email Loading...</a>`;
+        if (item.type === 'email-placeholder') return emailLink('block text-lg font-medium hover:underline');
         if (item.type === 'social') return `<a href="${item.url}" target="_blank" class="block text-lg hover:underline">${item.label}</a>`;
         return '';
     }).join('')}
-                        <div class="flex space-x-4 pt-4">
+                        <div class="flex space-x-4 pt-2">
                             ${aboutInfo.social.map(item => {
         let url = item.url;
         if (url === '#blog') url = '/blog/';
@@ -124,13 +151,46 @@ async function build() {
                         </div>
                     </div>
                 </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mt-16 pt-12 border-t border-border-light">
+                    <div class="md:col-span-2">
+                        <h2 class="text-sm uppercase tracking-wider text-muted-text mb-6">Experience</h2>
+                        <ul class="space-y-4">
+                            ${aboutInfo.experience.map(e => `
+                            <li class="flex flex-col sm:flex-row sm:justify-between sm:items-baseline gap-1 border-b border-border-light pb-4 last:border-0">
+                                <span class="text-lg"><span class="font-medium">${e.role}</span><span class="text-muted-text">, ${e.org}</span></span>
+                                <span class="text-sm text-muted-text font-mono whitespace-nowrap">${e.dates}</span>
+                            </li>`).join('')}
+                        </ul>
+                    </div>
+                    <div class="space-y-10">
+                        <div>
+                            <h2 class="text-sm uppercase tracking-wider text-muted-text mb-4">What I do</h2>
+                            <ul class="space-y-2 text-base">
+                                ${aboutInfo.capabilities.map(c => `<li>${c}</li>`).join('')}
+                            </ul>
+                        </div>
+                        <div>
+                            <h2 class="text-sm uppercase tracking-wider text-muted-text mb-4">Recognition</h2>
+                            <ul class="space-y-2 text-base">
+                                ${aboutInfo.recognition.map(r => `<li>${r}</li>`).join('')}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-16 pt-12 border-t border-border-light">
+                    <h2 class="text-sm uppercase tracking-wider text-muted-text mb-4">Selected clients &amp; brands</h2>
+                    <p class="text-lg leading-relaxed">${aboutInfo.clients.join(' · ')}</p>
+                </div>
             </div>
         </section>
     `;
     await writePage(path.join(OUT_DIR, 'info', 'index.html'), infoContent, {
-        title: 'Info - Adam Jaro',
-        description: 'About Adam Jaro - Creative Director.',
-        url: 'https://adamjaro.com/info/'
+        title: 'About & contact - Adam Jaro, Creative Director',
+        description: 'Adam Jaro is a London-based creative director. Acting Head of Creative at Kooth; previously an early creative hire at Fiit and MindLabs, and agency co-founder.',
+        url: 'https://adamjaro.com/info/',
+        schema: personSchema
     });
 
     // --- 3. Privacy Page ---
@@ -223,12 +283,17 @@ async function build() {
                 <div class="max-w-4xl mx-auto">
                     <div class="mb-8"><a href="/" class="btn-pill nav-link cursor-pointer">← All Projects</a></div>
                     <header class="mb-10">
-                        <h2 class="text-3xl md:text-5xl font-bold mb-2 leading-tight">${project.title}</h2>
+                        <h1 class="text-3xl md:text-5xl font-bold mb-2 leading-tight">${project.title}</h1>
                         <p class="text-lg text-muted-text font-medium">${project.category}</p>
                     </header>
                     <article class="space-y-8 md:space-y-12">
                         ${contentHtml}
                     </article>
+
+                    <div class="mt-16 pt-10 border-t border-border-light text-lg">
+                        <p class="text-muted-text">Want to talk about work like this?</p>
+                        <a href="#" class="font-medium hover:underline email-inject">Email me</a>
+                    </div>
                     
                     ${nextProject ? `
                     <div class="mt-12 mb-4">
@@ -250,7 +315,7 @@ async function build() {
 
         await writePage(path.join(OUT_DIR, 'projects', project.id, 'index.html'), projectPageContent, {
             title: `${project.title} - Adam Jaro`,
-            description: `${project.title} - ${project.category}`,
+            description: `${project.category}: ${projectSummary(project)}`,
             image: `https://adamjaro.com${project.thumbnail}`,
             url: `https://adamjaro.com/projects/${project.id}/`
         });
@@ -336,7 +401,7 @@ async function build() {
                         <a href="/blog/" class="btn-pill nav-link cursor-pointer">← All Posts</a>
                     </div>
                     <header class="mb-10">
-                        <h2 class="text-3xl md:text-5xl font-bold mb-2 leading-tight">${post.title}</h2>
+                        <h1 class="text-3xl md:text-5xl font-bold mb-2 leading-tight">${post.title}</h1>
                         <p class="text-lg text-muted-text font-medium">${new Date(post.date).toLocaleDateString('en-GB', { year: 'numeric', month: 'long', day: 'numeric' })}</p>
                     </header>
                     <article class="space-y-8 md:space-y-12 mb-16">
@@ -346,11 +411,11 @@ async function build() {
                     <div class="border-t border-border-light pt-12 pb-12">
                         <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
                             <div class="md:col-span-2 text-xl leading-relaxed font-light">
-                                ${aboutInfo.bio}
+                                ${aboutInfo.shortBio}
                             </div>
                             <div class="space-y-4">
                                 ${aboutInfo.contact.map(item => {
-            if (item.type === 'email-placeholder') return `<a href="#" class="block text-lg hover:underline email-inject">Email Loading...</a>`;
+            if (item.type === 'email-placeholder') return `<a href="#" class="block text-lg hover:underline email-inject">Email me</a>`;
             if (item.type === 'social') return `<a href="${item.url}" target="_blank" class="block text-lg hover:underline">${item.label}</a>`;
             return '';
         }).join('')}

@@ -66,6 +66,7 @@
         rel="stylesheet">
 
     <link rel="stylesheet" href="../style.css">
+    
 </head>
 
 <body class="min-h-screen flex flex-col">
@@ -75,9 +76,11 @@
         <a href="/"
             class="text-2xl font-bold tracking-tight cursor-pointer nav-link hover:opacity-70 transition-opacity"
             id="nav-home">ADAM JARO </a>
-        <nav><a href="/info/"
+        <nav class="flex items-center gap-6"><a href="/info/"
                 class="text-lg font-medium tracking-wide cursor-pointer nav-link hover:opacity-70 transition-opacity"
-                id="nav-info">INFO </a></nav>
+                id="nav-info">INFO</a><a href="/info/#contact"
+                class="text-lg font-medium tracking-wide cursor-pointer nav-link hover:opacity-70 transition-opacity"
+                id="nav-contact">CONTACT</a></nav>
     </header>
     <!-- Main Content Area -->
     <main id="main-content" class="flex-grow px-4 md:px-10 pt-24 md:pt-32 pb-40 md:pb-48">
@@ -116,11 +119,11 @@
             <div class="mb-2 md:mb-0"><a id="footer-email-link"
                     class="text-base nav-link font-medium hover:underline"></a>
                 <p class="text-xs text-muted-text mt-1">© <span id="footer-year"></span> Adam Jaro. Creative
-                    Direction & Film.</p>
+                    Direction. <a href="/privacy/" class="underline hover:text-primary-text">Privacy</a></p>
             </div>
             <div class="flex items-center space-x-6">
                 <div id="footer-social-links" class="flex space-x-4">
-                    <a href="https://www.linkedin.com/in/adamjaro" target="_blank" rel="noopener noreferrer" class="text-sm nav-link font-medium hover:opacity-70 transition-opacity">LinkedIn</a><a href="/blog/"  class="text-sm nav-link font-medium hover:opacity-70 transition-opacity">Blog</a>
+                    <a href="https://www.linkedin.com/in/adamjaro" target="_blank" rel="noopener noreferrer" class="text-sm nav-link font-medium hover:opacity-70 transition-opacity">LinkedIn</a>
                 </div><button id="theme-toggle" type="button"
                     class="p-2 rounded-full text-muted-text hover:text-primary-text hover:bg-border-light transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-text"><span
                         class="sr-only">Toggle dark mode</span><svg id="sun-icon" class="h-5 w-5" fill="none"
@@ -135,30 +138,6 @@
             </div>
         </div>
     </footer>
-    <!-- Cookie Consent Banner -->
-    <div id="cookie-banner"
-        class="fixed bottom-4 right-4 max-w-sm w-[calc(100%-2rem)] bg-white/80 dark:bg-[#111111]/80 backdrop-blur-md border border-border-light p-6 rounded-sm shadow-lg z-50 transform transition-all duration-500 translate-y-full opacity-0">
-        <div class="flex flex-col space-y-4">
-            <div class="space-y-2">
-                <h3 class="text-lg font-bold font-display">Cookies & Privacy</h3>
-                <p class="text-sm text-muted-text leading-relaxed">
-                    We use cookies to ensure you get the best experience on our website.
-                    <a href="#privacy" class="underline hover:text-primary-text transition-colors">Learn more</a>.
-                </p>
-            </div>
-            <div class="flex space-x-3">
-                <button id="cookie-accept"
-                    class="flex-1 bg-primary-text text-page-bg px-4 py-2 text-sm font-bold rounded-sm hover:opacity-90 transition-opacity">
-                    Accept
-                </button>
-                <button id="cookie-decline"
-                    class="flex-1 bg-transparent border border-border-light text-primary-text px-4 py-2 text-sm font-bold rounded-sm hover:bg-border-light/50 transition-colors">
-                    Decline
-                </button>
-            </div>
-        </div>
-    </div>
-
     <!-- Main Script -->
     <script type="module" src="../script.js"></script>
 </body>

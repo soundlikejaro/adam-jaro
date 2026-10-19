@@ -45,40 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Check initial scroll position
     handleScroll();
 
-    // --- Cookie Consent Logic ---
-    const cookieBanner = document.getElementById('cookie-banner');
-    const acceptBtn = document.getElementById('cookie-accept');
-    const declineBtn = document.getElementById('cookie-decline');
-
-    // Check if user has already made a choice
-    if (!localStorage.getItem('cookieConsent')) {
-        // Show banner after a short delay
-        setTimeout(() => {
-            cookieBanner.classList.remove('translate-y-full', 'opacity-0');
-        }, 1000);
-    }
-
-    if (acceptBtn) {
-        acceptBtn.addEventListener('click', () => {
-            localStorage.setItem('cookieConsent', 'accepted');
-            hideCookieBanner();
-        });
-    }
-
-    if (declineBtn) {
-        declineBtn.addEventListener('click', () => {
-            localStorage.setItem('cookieConsent', 'declined');
-            hideCookieBanner();
-        });
-    }
-
-    function hideCookieBanner() {
-        cookieBanner.classList.add('translate-y-full', 'opacity-0');
-        // Remove from DOM after transition to clean up
-        setTimeout(() => {
-            cookieBanner.style.display = 'none';
-        }, 500);
-    }
+    // (Cookie banner removed: the site sets no tracking cookies. Theme choice is kept in localStorage.)
 
     // --- Footer Year & Email Injection ---
     const footerYear = document.getElementById('footer-year');

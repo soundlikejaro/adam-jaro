@@ -1,6 +1,6 @@
 export const privacyPolicy = `
     <h3 class="text-2xl font-bold mb-4">Privacy Policy</h3>
-    <p class="mb-4">Last updated: November 2025</p>
+    <p class="mb-4">Last updated: October 2026</p>
     
     <h4 class="text-xl font-bold mb-2">1. Introduction</h4>
     <p class="mb-4">Welcome to Adam Jaro's portfolio. We respect your privacy and are committed to protecting your personal data. This privacy policy will inform you as to how we look after your personal data when you visit our website (regardless of where you visit it from) and tell you about your privacy rights and how the law protects you.</p>
@@ -22,7 +22,7 @@ export const privacyPolicy = `
     </ul>
 
     <h4 class="text-xl font-bold mb-2">4. Cookies</h4>
-    <p class="mb-4">You can set your browser to refuse all or some browser cookies, or to alert you when websites set or access cookies. If you disable or refuse cookies, please note that some parts of this website may become inaccessible or not function properly.</p>
+    <p class="mb-4">This site does not use tracking or advertising cookies. If you switch between light and dark mode, that preference is saved in your browser's local storage so it's remembered next time. Embedded videos from YouTube and Vimeo may set their own cookies under their own privacy policies.</p>
     
     <h4 class="text-xl font-bold mb-2">5. Contact Details</h4>
     <p class="mb-4">If you have any questions about this privacy policy or our privacy practices, please contact us via email.</p>

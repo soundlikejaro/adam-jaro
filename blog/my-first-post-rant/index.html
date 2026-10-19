@@ -66,6 +66,7 @@
         rel="stylesheet">
 
     <link rel="stylesheet" href="../../style.css">
+    
 </head>
 
 <body class="min-h-screen flex flex-col">
@@ -75,9 +76,11 @@
         <a href="/"
             class="text-2xl font-bold tracking-tight cursor-pointer nav-link hover:opacity-70 transition-opacity"
             id="nav-home">ADAM JARO </a>
-        <nav><a href="/info/"
+        <nav class="flex items-center gap-6"><a href="/info/"
                 class="text-lg font-medium tracking-wide cursor-pointer nav-link hover:opacity-70 transition-opacity"
-                id="nav-info">INFO </a></nav>
+                id="nav-info">INFO</a><a href="/info/#contact"
+                class="text-lg font-medium tracking-wide cursor-pointer nav-link hover:opacity-70 transition-opacity"
+                id="nav-contact">CONTACT</a></nav>
     </header>
     <!-- Main Content Area -->
     <main id="main-content" class="flex-grow px-4 md:px-10 pt-24 md:pt-32 pb-40 md:pb-48">
@@ -88,7 +91,7 @@
                         <a href="/blog/" class="btn-pill nav-link cursor-pointer">← All Posts</a>
                     </div>
                     <header class="mb-10">
-                        <h2 class="text-3xl md:text-5xl font-bold mb-2 leading-tight">My first post/rant</h2>
+                        <h1 class="text-3xl md:text-5xl font-bold mb-2 leading-tight">My first post/rant</h1>
                         <p class="text-lg text-muted-text font-medium">24 November 2025</p>
                     </header>
                     <article class="space-y-8 md:space-y-12 mb-16">
@@ -104,14 +107,14 @@
                         <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
                             <div class="md:col-span-2 text-xl leading-relaxed font-light">
                                 
-        <p class="mb-4">Adam Jaro is a multi-disciplinary creative based in London.</p>
-        <p>Specialising in creative direction, filmmaking and editing, his work combines a strong visual language with authentic, human-led storytelling.</p>
+        <p class="mb-4">Adam Jaro is a creative director based in London.</p>
+        <p>He builds brands, campaigns and the creative teams behind them, mostly in startups and scale-ups.</p>
     
                             </div>
                             <div class="space-y-4">
-                                <a href="#" class="block text-lg hover:underline email-inject">Email Loading...</a>
+                                <a href="#" class="block text-lg hover:underline email-inject">Email me</a>
                                 <div class="flex space-x-4 pt-4">
-                                    <a href="https://www.linkedin.com/in/adamjaro" target="_blank" rel="noopener noreferrer" class="text-lg nav-link font-medium text-nav-link-color hover:opacity-70 transition-opacity">LinkedIn</a><a href="/blog/"  class="text-lg nav-link font-medium text-nav-link-color hover:opacity-70 transition-opacity">Blog</a>
+                                    <a href="https://www.linkedin.com/in/adamjaro" target="_blank" rel="noopener noreferrer" class="text-lg nav-link font-medium text-nav-link-color hover:opacity-70 transition-opacity">LinkedIn</a>
                                 </div>
                             </div>
                         </div>
@@ -131,11 +134,11 @@
             <div class="mb-2 md:mb-0"><a id="footer-email-link"
                     class="text-base nav-link font-medium hover:underline"></a>
                 <p class="text-xs text-muted-text mt-1">© <span id="footer-year"></span> Adam Jaro. Creative
-                    Direction & Film.</p>
+                    Direction. <a href="/privacy/" class="underline hover:text-primary-text">Privacy</a></p>
             </div>
             <div class="flex items-center space-x-6">
                 <div id="footer-social-links" class="flex space-x-4">
-                    <a href="https://www.linkedin.com/in/adamjaro" target="_blank" rel="noopener noreferrer" class="text-sm nav-link font-medium hover:opacity-70 transition-opacity">LinkedIn</a><a href="/blog/"  class="text-sm nav-link font-medium hover:opacity-70 transition-opacity">Blog</a>
+                    <a href="https://www.linkedin.com/in/adamjaro" target="_blank" rel="noopener noreferrer" class="text-sm nav-link font-medium hover:opacity-70 transition-opacity">LinkedIn</a>
                 </div><button id="theme-toggle" type="button"
                     class="p-2 rounded-full text-muted-text hover:text-primary-text hover:bg-border-light transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-text"><span
                         class="sr-only">Toggle dark mode</span><svg id="sun-icon" class="h-5 w-5" fill="none"
@@ -150,30 +153,6 @@
             </div>
         </div>
     </footer>
-    <!-- Cookie Consent Banner -->
-    <div id="cookie-banner"
-        class="fixed bottom-4 right-4 max-w-sm w-[calc(100%-2rem)] bg-white/80 dark:bg-[#111111]/80 backdrop-blur-md border border-border-light p-6 rounded-sm shadow-lg z-50 transform transition-all duration-500 translate-y-full opacity-0">
-        <div class="flex flex-col space-y-4">
-            <div class="space-y-2">
-                <h3 class="text-lg font-bold font-display">Cookies & Privacy</h3>
-                <p class="text-sm text-muted-text leading-relaxed">
-                    We use cookies to ensure you get the best experience on our website.
-                    <a href="#privacy" class="underline hover:text-primary-text transition-colors">Learn more</a>.
-                </p>
-            </div>
-            <div class="flex space-x-3">
-                <button id="cookie-accept"
-                    class="flex-1 bg-primary-text text-page-bg px-4 py-2 text-sm font-bold rounded-sm hover:opacity-90 transition-opacity">
-                    Accept
-                </button>
-                <button id="cookie-decline"
-                    class="flex-1 bg-transparent border border-border-light text-primary-text px-4 py-2 text-sm font-bold rounded-sm hover:bg-border-light/50 transition-colors">
-                    Decline
-                </button>
-            </div>
-        </div>
-    </div>
-
     <!-- Main Script -->
     <script type="module" src="../../script.js"></script>
 </body>
