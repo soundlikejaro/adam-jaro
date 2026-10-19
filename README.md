@@ -10,7 +10,7 @@ Open `src/data.js`. This file contains the list of all projects.
 - **To edit a project**: Simply change the values in the corresponding project block.
 
 ### 2. Adding or Editing Blog Posts
-Open `src/blog-data.js`.
+The blog is currently switched off: with no posts, no `/blog/` pages are built. Open `src/blog-data.js` to add one (there's an example in the comments). To show the Blog link in the nav, uncomment it in `aboutInfo.social` in `src/data.js`.
 - **To add a post**: Add a new object to the `blogPosts` array.
   ```javascript
   {

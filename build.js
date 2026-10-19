@@ -249,6 +249,12 @@ async function build() {
     const cssVersion = await contentHash(path.join(OUT_DIR, 'style.css'));
     const jsVersion = await contentHash(path.join(OUT_DIR, 'script.js'));
 
+    // Blog pages are rebuilt from scratch each time, so deleted posts don't linger online
+    await fs.rm(path.join(OUT_DIR, 'blog'), { recursive: true, force: true });
+    for (const file of existsSync(path.join(OUT_DIR, 'images', 'og')) ? await fs.readdir(path.join(OUT_DIR, 'images', 'og')) : []) {
+        if (file.startsWith('blog-')) await fs.rm(path.join(OUT_DIR, 'images', 'og', file));
+    }
+
     const defaultOgImage = await makeOgImage('/images/herecomestrouble.webp', 'default');
 
     // Read template
@@ -462,11 +468,14 @@ async function build() {
             </div>
         </section>
     `;
-    await writePage(path.join(OUT_DIR, 'blog', 'index.html'), blogListContent, {
-        title: 'Blog | Adam Jaro',
-        description: 'Thoughts and updates from Adam Jaro.',
-        url: `${SITE}/blog/`
-    });
+    // No posts = no blog pages at all (/blog/ shows the 404 page)
+    if (blogPosts.length) {
+        await writePage(path.join(OUT_DIR, 'blog', 'index.html'), blogListContent, {
+            title: 'Blog | Adam Jaro',
+            description: 'Thoughts and updates from Adam Jaro.',
+            url: `${SITE}/blog/`
+        });
+    }
 
     // --- 5. Project Pages ---
     for (let i = 0; i < projects.length; i++) {
