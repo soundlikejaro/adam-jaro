@@ -47,21 +47,23 @@
         rel="stylesheet">
 
     <!-- Styles are compiled at build time (Tailwind + src/style.css) -->
-    <link rel="stylesheet" href="/style.css?v=c4905a9e">
+    <link rel="stylesheet" href="/style.css?v=b5165c6a">
     <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"CreativeWork","@id":"https://adamjaro.com/projects/here-comes-trouble/#work","name":"Here comes trouble","url":"https://adamjaro.com/projects/here-comes-trouble/","description":"The Trouble Club is a community and talks organisation for women.","genre":"brand campaign","image":"https://adamjaro.com/images/og/here-comes-trouble.jpg","creator":{"@id":"https://adamjaro.com/#person"},"sponsor":[{"@type":"Organization","name":"Trouble Club"}],"isPartOf":{"@id":"https://adamjaro.com/#website"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Work","item":"https://adamjaro.com/"},{"@type":"ListItem","position":2,"name":"Here comes trouble","item":"https://adamjaro.com/projects/here-comes-trouble/"}]},{"@type":"Person","@id":"https://adamjaro.com/#person","name":"Adam Jaro","url":"https://adamjaro.com/","image":"https://adamjaro.com/images/adam-jaro.webp","jobTitle":"Creative Director","description":"London-based creative director building brands, campaigns and the creative teams behind them, mostly in startups and scale-ups.","worksFor":{"@type":"Organization","name":"Kooth Digital Health"},"hasOccupation":{"@type":"Occupation","name":"Creative Lead"},"address":{"@type":"PostalAddress","addressLocality":"London","addressCountry":"GB"},"sameAs":["https://www.linkedin.com/in/adamjaro"],"knowsAbout":["Creative direction & brand strategy","Brand identity & systems","Integrated campaigns: TV, OOH, digital, social","Performance creative & paid social","Building and leading creative teams","Pitch, investor & board materials","AI-assisted design and build"],"award":["Brand Film Awards 2026, Winner: The Pretender (Kooth x The Diana Award)"]}]}</script>
 </head>
 
 <body class="min-h-screen flex flex-col">
     <!-- Header -->
     <header id="main-header"
-        class="fixed top-0 left-0 w-full px-4 md:px-10 py-4 md:py-6 z-50 transition-all duration-300">
-        <div class="max-w-6xl mx-auto flex justify-between items-center">
+        class="fixed top-0 left-0 w-full px-4 md:px-10 py-2 md:py-4 z-50">
+        <div class="max-w-6xl mx-auto">
+        <div id="header-bar" class="glass-bar flex justify-between items-center -mx-3 px-3 md:-mx-6 md:px-6 py-2 rounded-full">
         <a href="/"
             class="text-2xl font-bold tracking-tight cursor-pointer nav-link hover:opacity-70 transition-opacity"
             id="nav-home">ADAM JARO </a>
         <nav class="flex items-center gap-6"><a href="/info/"
                 class="text-lg font-medium tracking-wide cursor-pointer nav-link hover:opacity-70 transition-opacity"
                 id="nav-info">INFO</a></nav>
+        </div>
         </div>
     </header>
     <!-- Main Content Area -->
@@ -114,12 +116,13 @@
     </main>
     <!-- Global Footer -->
     <footer
-        class="fixed bottom-0 left-0 w-full bg-white/60 dark:bg-[#111111]/60 backdrop-blur-md px-4 md:px-10 py-4 md:py-6 border-t border-border-light transition-colors duration-300 z-40">
-        <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center text-center md:text-left">
+        class="fixed bottom-0 left-0 w-full px-4 md:px-10 pb-3 md:pb-5 z-40">
+        <div class="max-w-6xl mx-auto">
+        <div class="glass flex flex-col md:flex-row justify-between items-center text-center md:text-left -mx-3 px-3 md:-mx-6 md:px-6 py-3 md:py-4 rounded-2xl md:rounded-full">
             <div class="mb-2 md:mb-0"><a id="footer-email-link"
                     class="text-base nav-link font-medium hover:underline"></a>
                 <p class="text-xs text-muted-text mt-1">© <span id="footer-year"></span> Adam Jaro. Creative
-                    Direction. <a href="/privacy/" class="underline hover:text-primary-text">Privacy</a></p>
+                    Direction. <a href="/privacy/" class="hover:text-primary-text">Privacy</a></p>
             </div>
             <div class="flex items-center space-x-6">
                 <div id="footer-social-links" class="flex space-x-4">
@@ -137,9 +140,10 @@
                     </svg></button>
             </div>
         </div>
+        </div>
     </footer>
     <!-- Main Script -->
-    <script type="module" src="/script.js?v=9df44e2d"></script>
+    <script type="module" src="/script.js?v=9a9da3c0"></script>
 </body>
 
 </html>

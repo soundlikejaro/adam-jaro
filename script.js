@@ -31,17 +31,14 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // --- Dynamic Sticky Header ---
-    const header = document.getElementById('main-header');
+    // The header turns into a glass bar once you scroll
+    const headerBar = document.getElementById('header-bar');
 
     function handleScroll() {
-        if (window.scrollY > 50) {
-            header.classList.add('bg-white/60', 'dark:bg-[#111111]/60', 'backdrop-blur-md', 'border-b', 'border-border-light');
-        } else {
-            header.classList.remove('bg-white/60', 'dark:bg-[#111111]/60', 'backdrop-blur-md', 'border-b', 'border-border-light');
-        }
+        headerBar.classList.toggle('glass', window.scrollY > 50);
     }
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     // Check initial scroll position
     handleScroll();
 

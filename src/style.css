@@ -341,26 +341,69 @@ button:focus-visible {
     color: transparent;
 }
 
-/* Homepage intro: each word fades from the text colour into one continuous gradient.
-   The gradient sits on the whole line (clipped to the text); each word starts solid
-   and turns transparent in turn, revealing it. */
+/* Homepage intro: the line starts in one continuous gradient, then each word
+   settles into the normal text colour in turn. The gradient sits on the whole
+   line (clipped to the text); each word fades from transparent (showing it) to solid. */
 .intro-reveal {
-    background: linear-gradient(90deg, var(--accent-a) 15%, var(--accent-b) 85%);
+    background: linear-gradient(90deg, var(--accent-a) 15%, var(--accent-b) 85%) no-repeat;
+    background-size: 100% 100%;
     -webkit-background-clip: text;
     background-clip: text;
+    /* Once every word has settled, drop the gradient so no pink edge shows around the letters */
+    animation: intro-done 0.01s linear both;
+    animation-delay: calc(1.2s + var(--n) * 0.07s + 0.8s);
+}
+
+@keyframes intro-done {
+    to { background-size: 0 0; }
 }
 
 .intro-reveal span {
-    color: transparent;
-    animation: intro-word 0.7s ease-out both;
-    animation-delay: calc(0.4s + var(--i) * 0.07s);
+    color: rgb(var(--color-primary-text));
+    animation: intro-word 0.8s ease-in-out both;
+    animation-delay: calc(1.2s + var(--i) * 0.07s);
 }
 
 @keyframes intro-word {
-    from { color: rgb(var(--color-primary-text)); }
-    to { color: transparent; }
+    from { color: transparent; }
+    to { color: rgb(var(--color-primary-text)); }
 }
 
 @media (prefers-reduced-motion: reduce) {
+    .intro-reveal,
     .intro-reveal span { animation: none; }
+    .intro-reveal { background: none; }
+}
+
+/* ---------- Liquid glass (header on scroll, footer) ---------- */
+.glass-bar {
+    border: 1px solid transparent;
+    transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.glass {
+    /* Tinted, heavily blurred and saturated, with a bright top edge like curved glass */
+    background:
+        linear-gradient(180deg, rgb(255 255 255 / 0.10) 0%, rgb(255 255 255 / 0.02) 45%, rgb(255 255 255 / 0.05) 100%),
+        rgb(var(--color-page-bg) / 0.45);
+    -webkit-backdrop-filter: blur(18px) saturate(180%) brightness(1.05);
+    backdrop-filter: blur(18px) saturate(180%) brightness(1.05);
+    border: 1px solid rgb(255 255 255 / 0.12);
+    box-shadow:
+        inset 0 1px 0 rgb(255 255 255 / 0.22),
+        inset 0 -1px 0 rgb(255 255 255 / 0.04),
+        inset 0 0 20px rgb(255 255 255 / 0.04),
+        0 10px 30px -10px rgb(0 0 0 / 0.5);
+}
+
+html:not(.dark) .glass {
+    background:
+        linear-gradient(180deg, rgb(255 255 255 / 0.75) 0%, rgb(255 255 255 / 0.45) 100%),
+        rgb(var(--color-page-bg) / 0.25);
+    border-color: rgb(255 255 255 / 0.8);
+    box-shadow:
+        inset 0 1px 0 rgb(255 255 255 / 1),
+        inset 0 0 20px rgb(255 255 255 / 0.35),
+        0 10px 30px -12px rgb(0 0 0 / 0.18),
+        0 0 0 1px rgb(0 0 0 / 0.04);
 }

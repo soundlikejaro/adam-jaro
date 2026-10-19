@@ -54,14 +54,16 @@
 <body class="min-h-screen flex flex-col">
     <!-- Header -->
     <header id="main-header"
-        class="fixed top-0 left-0 w-full px-4 md:px-10 py-4 md:py-6 z-50 transition-all duration-300">
-        <div class="max-w-6xl mx-auto flex justify-between items-center">
+        class="fixed top-0 left-0 w-full px-4 md:px-10 py-2 md:py-4 z-50">
+        <div class="max-w-6xl mx-auto">
+        <div id="header-bar" class="glass-bar flex justify-between items-center -mx-3 px-3 md:-mx-6 md:px-6 py-2 rounded-full">
         <a href="/"
             class="text-2xl font-bold tracking-tight cursor-pointer nav-link hover:opacity-70 transition-opacity"
             id="nav-home">ADAM JARO </a>
         <nav class="flex items-center gap-6"><a href="/info/"
                 class="text-lg font-medium tracking-wide cursor-pointer nav-link hover:opacity-70 transition-opacity"
                 id="nav-info">INFO</a></nav>
+        </div>
         </div>
     </header>
     <!-- Main Content Area -->
@@ -70,12 +72,13 @@
     </main>
     <!-- Global Footer -->
     <footer
-        class="fixed bottom-0 left-0 w-full bg-white/60 dark:bg-[#111111]/60 backdrop-blur-md px-4 md:px-10 py-4 md:py-6 border-t border-border-light transition-colors duration-300 z-40">
-        <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center text-center md:text-left">
+        class="fixed bottom-0 left-0 w-full px-4 md:px-10 pb-3 md:pb-5 z-40">
+        <div class="max-w-6xl mx-auto">
+        <div class="glass flex flex-col md:flex-row justify-between items-center text-center md:text-left -mx-3 px-3 md:-mx-6 md:px-6 py-3 md:py-4 rounded-2xl md:rounded-full">
             <div class="mb-2 md:mb-0"><a id="footer-email-link"
                     class="text-base nav-link font-medium hover:underline"></a>
                 <p class="text-xs text-muted-text mt-1">© <span id="footer-year"></span> Adam Jaro. Creative
-                    Direction. <a href="/privacy/" class="underline hover:text-primary-text">Privacy</a></p>
+                    Direction. <a href="/privacy/" class="hover:text-primary-text">Privacy</a></p>
             </div>
             <div class="flex items-center space-x-6">
                 <div id="footer-social-links" class="flex space-x-4">
@@ -92,6 +95,7 @@
                             d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
                     </svg></button>
             </div>
+        </div>
         </div>
     </footer>
     <!-- Main Script -->
