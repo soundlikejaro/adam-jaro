@@ -726,25 +726,46 @@ async function build() {
         const info = imageInfo.get(p.image);
         const poster = info ? (info.variants.find(v => v.w >= 960) || info.variants[info.variants.length - 1]).url : p.image;
         const size = info ? ` width="${info.width}" height="${info.height}"` : '';
-        return `<video class="lab-video w-full h-auto rounded-sm" src="${p.video}" poster="${poster}"${size} muted loop playsinline preload="none" aria-label="${esc(`${p.name}: ${p.tagline}`)}"></video>`;
+        return `<video class="lab-video w-full h-auto rounded-xl" src="${p.video}" poster="${poster}"${size} muted loop playsinline preload="none" aria-label="${esc(`${p.name}: ${p.tagline}`)}"></video>`;
     };
+    // Background waveforms: real FM waves, y = sin(carrier + index * sin(modulator)).
+    // Whole cycles over one period, drawn twice, so sliding left by one period loops seamlessly.
+    const fmWavePath = (period, height, carrierCycles, modCycles, index) => {
+        const points = [];
+        for (let x = 0; x <= period * 2; x += 4) {
+            const t = (x / period) * Math.PI * 2;
+            const y = height / 2 + (height / 2 - 2) * Math.sin(carrierCycles * t + index * Math.sin(modCycles * t));
+            points.push(`${x},${y.toFixed(1)}`);
+        }
+        return `M${points.join(' L')}`;
+    };
+    const labBackground = `
+        <div class="lab-bg" aria-hidden="true">
+            <div class="lab-orb lab-orb-a"></div>
+            <div class="lab-orb lab-orb-b"></div>
+            <div class="lab-orb lab-orb-c"></div>
+            <div class="lab-grid"></div>
+            <svg class="lab-wave lab-wave-a" viewBox="0 0 2400 120" preserveAspectRatio="none"><path d="${fmWavePath(1200, 120, 3, 1, 2.2)}" /></svg>
+            <svg class="lab-wave lab-wave-b" viewBox="0 0 2400 80" preserveAspectRatio="none"><path d="${fmWavePath(1200, 80, 5, 2, 1.4)}" /></svg>
+        </div>`;
     const labContent = `
-        <section id="page-lab" class="page active">
+        ${labBackground}
+        <section id="page-lab" class="page active relative z-10">
             <div class="max-w-4xl mx-auto">
                 <div class="mb-8"><a href="/" class="btn-pill nav-link cursor-pointer">← Back to all projects</a></div>
                 <header class="mb-12">
                     <h1 class="text-3xl md:text-5xl font-bold mb-4 leading-tight">Lab</h1>
                     <div class="lab-intro text-xl leading-relaxed font-light text-muted-text max-w-2xl space-y-4">${labIntro}</div>
                 </header>
-                <div class="space-y-16">
+                <div class="space-y-6 md:space-y-8">
                     ${labProjects.map((p, i) => `
-                    <article class="grid grid-cols-1 md:grid-cols-5 gap-6 md:gap-10 items-start ${i > 0 ? 'pt-16 border-t border-border-light' : ''}">
+                    <article class="lab-card grid grid-cols-1 md:grid-cols-5 gap-6 md:gap-10 items-start p-5 md:p-8 rounded-2xl md:rounded-3xl">
                         <div class="md:col-span-2">
                             ${p.video
         ? labVideo(p, i)
         : p.image
-        ? img(p.image, { alt: `${p.name} screenshot`, sizes: '(min-width: 768px) 340px, 100vw', cls: 'w-full h-auto rounded-sm', lazy: i > 0 })
-        : `<div class="lab-tile aspect-[4/3] rounded-sm flex items-center justify-center p-6" aria-hidden="true"><span class="font-display text-3xl font-bold text-white text-center leading-tight">${p.name}</span></div>`}
+        ? img(p.image, { alt: `${p.name} screenshot`, sizes: '(min-width: 768px) 340px, 100vw', cls: 'w-full h-auto rounded-xl', lazy: i > 0 })
+        : `<div class="lab-tile aspect-[4/3] rounded-xl flex items-center justify-center p-6" aria-hidden="true"><span class="font-display text-3xl font-bold text-white text-center leading-tight">${p.name}</span></div>`}
                         </div>
                         <div class="md:col-span-3">
                             <div class="flex flex-wrap items-center gap-3 mb-2">
