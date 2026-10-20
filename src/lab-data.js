@@ -32,16 +32,16 @@ export const labProjects = [
     },
     {
         name: 'FM synth',
-        tagline: '[Working title] A daily game built around an FM synth',
+        tagline: 'A daily puzzle on a four-track FM synth',
         status: 'In progress',
         url: '',
         urlLabel: '',
-        image: '',
+        image: '/images/lab-fm.webp',
         body: `
-            <p>[Placeholder] What the game is and how you play it.</p>
-            <p>[Placeholder] What I designed and built.</p>
+            <p>A pocket synth with four tracks: bass, keys, lead and drums. Every day there's a new puzzle, the same for everyone: a tempo and three rules about the shape, sound and placement of your pattern, checked live as you play. Or skip the puzzle, make something in free mode and share it with a link.</p>
+            <p>I designed and built the whole thing: the FM synth engine and its sound editor, a touch-first piano roll, the daily puzzles, and short share links that open straight into your pattern.</p>
         `,
-        builtWith: ['[Placeholder]', 'Claude Code'],
+        builtWith: ['TypeScript', 'Web Audio', 'Cloudflare Workers', 'Claude Code'],
     },
     {
         name: 'Clam Sync',
