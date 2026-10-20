@@ -734,7 +734,7 @@ async function build() {
                 <div class="mb-8"><a href="/" class="btn-pill nav-link cursor-pointer">← Back to all projects</a></div>
                 <header class="mb-12">
                     <h1 class="text-3xl md:text-5xl font-bold mb-4 leading-tight">Lab</h1>
-                    <p class="text-xl leading-relaxed font-light text-muted-text max-w-2xl">${labIntro}</p>
+                    <div class="lab-intro text-xl leading-relaxed font-light text-muted-text max-w-2xl space-y-4">${labIntro}</div>
                 </header>
                 <div class="space-y-16">
                     ${labProjects.map((p, i) => `
@@ -763,7 +763,7 @@ async function build() {
     `;
     await writePage(path.join(OUT_DIR, 'lab', 'index.html'), labContent, {
         title: 'Lab | Adam Jaro',
-        description: 'Side projects by Adam Jaro: daily games and creative tools, designed and coded with Claude Code.',
+        description: 'Side projects by Adam Jaro, built around music, film, nature and his own creative workflow: daily games and tools, designed and coded with Claude Code.',
         url: `${SITE}/lab/`,
         noindex: !LAB_PUBLIC
     });

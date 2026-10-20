@@ -13,7 +13,11 @@
 //   body       A short paragraph or two (HTML)
 //   builtWith  List of tools/tech
 
-export const labIntro = 'Things I build outside the day job: small tools and daily games, designed and coded with Claude Code.';
+// Intro paragraphs at the top of the Lab page (HTML)
+export const labIntro = `
+    <p>Things I make outside the day job, built around what I'm into: music and synths, film and video, nature, camping and cycling.</p>
+    <p>Some fix a problem in my own workflow, like Clam Sync, which syncs a shoot's footage so I don't have to. Others turn an interest into a small daily game. I design and code them all with Claude Code, and most start with the same question: could I make that?</p>
+`;
 
 export const labProjects = [
     {
