@@ -14,7 +14,7 @@ export const aboutInfo = {
     // Full version, used on the Info page
     bio: `
         <p class="mb-6">I'm a creative director in London. I got into this because I love making things, and ten years on I still do.</p>
-        <p class="mb-6">Most of my career has been in startups and scale-ups, usually as one of the first creative hires, working directly with the founder or CMO. At Fiit I directed the rebrand that helped grow sales 1.5x and took a national TV ad from brief to broadcast in two weeks. At MindLabs I built a team of six that shipped 1,500+ assets and tuned creative against performance data to a 5:1 ROI. I also co-founded an agency that passed £100k in its first year, working with Emilia Wickstead and the Royal Albert Hall.</p>
+        <p class="mb-6">Most of my career has been in startups and scale-ups, usually as one of the first creative hires, working directly with the founder or CMO. I also co-founded Social Custard, an agency that worked with Emilia Wickstead and the Royal Albert Hall.</p>
         <p class="mb-6">Now I'm Creative Lead at Kooth Digital Health: a company-wide brand refresh, national campaigns (including an award-winning one with The Diana Award), and the pitch and board decks most creative directors never touch.</p>
         <p>The job is the same wherever I am: set a clear creative bar, build the team and process that can hit it at speed, and stay hands-on enough to show what good looks like. I design, I direct, and I build things too. This site included, with Claude Code.</p>
     `,
