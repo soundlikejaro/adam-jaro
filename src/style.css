@@ -628,3 +628,35 @@ html:not(.dark) .lab-select {
 
 /* Cards hidden by the filter */
 .lab-card[hidden] { display: none; }
+
+/* Homepage intro footnote: pink asterisk on the intro, resolved underneath */
+.intro-mark {
+    color: var(--accent-a);
+    font-weight: 500;
+    margin-right: 0.05em;
+}
+
+.intro-reveal span.intro-mark {
+    animation: none;
+    color: var(--accent-a);
+}
+
+.intro-footnote {
+    animation: intro-footnote-in 0.6s ease-out both;
+}
+
+.intro-footnote a {
+    color: rgb(var(--color-primary-text));
+    text-decoration: underline;
+    text-decoration-color: var(--accent-a);
+    text-underline-offset: 0.2em;
+}
+
+@keyframes intro-footnote-in {
+    from { opacity: 0; transform: translateY(4px); }
+    to { opacity: 1; transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .intro-footnote { animation: none; }
+}

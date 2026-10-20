@@ -316,7 +316,10 @@ async function build() {
     const homeContent = `
         <section id="page-home" class="page active">
             <div class="mb-8 md:mb-12 text-left md:text-center max-w-2xl mx-auto">
-                <h1 class="intro-reveal text-xl md:text-2xl font-light leading-snug" style="--n:${aboutInfo.homeIntro.split(' ').length}">${aboutInfo.homeIntro.split(' ').map((word, i) => `<span style="--i:${i}">${word}</span>`).join(' ')}</h1>
+                <h1 class="intro-reveal text-xl md:text-2xl font-light leading-snug" style="--n:${aboutInfo.homeIntro.split(' ').length}">${aboutInfo.homeIntro.split(' ').map((word, i) => word.startsWith('*')
+        ? `<span class="intro-mark">*</span><span style="--i:${i}">${word.slice(1)}</span>`
+        : `<span style="--i:${i}">${word}</span>`).join(' ')}</h1>
+                ${aboutInfo.homeFootnote ? `<p class="intro-footnote mt-3 text-sm text-muted-text" style="animation-delay:${(1.2 + aboutInfo.homeIntro.split(' ').length * 0.07 + 0.6).toFixed(2)}s"><span class="intro-mark">*</span>${aboutInfo.homeFootnote}</p>` : ''}
                 ${aboutInfo.homeTagline ? `<p class="mt-5 text-lg md:text-xl font-light leading-snug text-muted-text">${aboutInfo.homeTagline}</p>` : ''}
                 <p class="mt-5 text-sm text-muted-text">${aboutInfo.clients.slice(0, 7).join(' · ')}</p>
             </div>
