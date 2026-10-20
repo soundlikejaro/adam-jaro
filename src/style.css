@@ -426,15 +426,6 @@ html:not(.dark) .glass {
     transform: translateY(0);
 }
 
-/* Short gradient rule under the title */
-.tile-overlay-content .text-gradient::before {
-    content: '';
-    display: block;
-    width: 2.5rem;
-    height: 2px;
-    margin: 0 auto 0.75rem;
-    background: linear-gradient(90deg, var(--accent-a), var(--accent-b));
-}
 
 /* Lab: stand-in tile when a project has no screenshot yet */
 .lab-tile {
