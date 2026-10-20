@@ -52,7 +52,7 @@ export const labProjects = [
         image: '/images/lab-clamsync.webp',
         body: `
             <p>A Mac and Windows app for video editors. Drop in a shoot's footage and it lines up every camera and sound recorder by matching their audio, then exports a synced timeline for Premiere Pro, DaVinci Resolve, Final Cut Pro or Avid. Clips are colour-coded by how they were placed, so you can see at a glance what to check.</p>
-            <p>I'm an editor, not a developer. I built it to replace PluralEyes on my own shoots, with Claude Code, and it's grown into a product with its own brand: hundreds of clips over several days, cameras with their clocks set wrong, and drifting audio.</p>
+            <p>I'm an editor, not a developer. I built it with Claude Code to replace PluralEyes on my own shoots, and it's grown into a full product, made for real shoots: hundreds of clips over several days, cameras with their clocks set wrong, and audio that drifts.</p>
         `,
         builtWith: ['Python', 'FFmpeg', 'Qt', 'Claude Code'],
     },
