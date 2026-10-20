@@ -72,6 +72,94 @@ document.addEventListener('DOMContentLoaded', () => {
         loopVideos.forEach(video => observer.observe(video));
     }
 
+    // --- Lab background: dots that move out of the way of the mouse ---
+    // Mouse/trackpad only, and not for reduced-motion users (they keep the still CSS grid).
+    const labBg = document.querySelector('.lab-bg');
+    if (labBg && !reduceMotion && window.matchMedia('(pointer: fine)').matches) {
+        const canvas = document.createElement('canvas');
+        canvas.className = 'lab-dots';
+        labBg.appendChild(canvas);
+        labBg.classList.add('has-dots-canvas');
+        const ctx = canvas.getContext('2d');
+
+        const GAP = 22;        // same spacing as the CSS grid
+        const RADIUS = 150;    // how far the cursor's influence reaches
+        const PUSH = 16;       // max distance a dot moves
+        const EASE = 0.14;     // how quickly dots follow (0-1)
+        let width = 0, height = 0, dots = [];
+        let mouse = { x: -9999, y: -9999 };
+        let running = false;
+
+        const resize = () => {
+            const dpr = Math.min(window.devicePixelRatio || 1, 2);
+            width = window.innerWidth;
+            height = window.innerHeight;
+            canvas.width = width * dpr;
+            canvas.height = height * dpr;
+            canvas.style.width = width + 'px';
+            canvas.style.height = height + 'px';
+            ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+            dots = [];
+            for (let y = GAP / 2; y < height; y += GAP) {
+                for (let x = GAP / 2; x < width; x += GAP) dots.push({ x, y, ox: 0, oy: 0, glow: 0 });
+            }
+            draw();
+        };
+
+        // Draws one frame; returns true while any dot is still moving
+        const draw = () => {
+            const dark = document.documentElement.classList.contains('dark');
+            const base = dark ? 'rgba(255,255,255,0.2)' : 'rgba(0,0,0,0.16)';
+            let moving = false;
+            ctx.clearRect(0, 0, width, height);
+            ctx.fillStyle = base;
+            ctx.beginPath();
+            const lit = [];
+            for (const d of dots) {
+                const dx = d.x - mouse.x, dy = d.y - mouse.y;
+                const dist = Math.hypot(dx, dy);
+                let tx = 0, ty = 0, tg = 0;
+                if (dist < RADIUS && dist > 0.01) {
+                    const strength = (1 - dist / RADIUS) ** 2;
+                    tx = (dx / dist) * PUSH * strength;
+                    ty = (dy / dist) * PUSH * strength;
+                    tg = strength;
+                }
+                d.ox += (tx - d.ox) * EASE;
+                d.oy += (ty - d.oy) * EASE;
+                d.glow += (tg - d.glow) * EASE;
+                if (Math.abs(tx - d.ox) > 0.05 || Math.abs(ty - d.oy) > 0.05 || Math.abs(tg - d.glow) > 0.005) moving = true;
+                if (d.glow > 0.02) { lit.push(d); continue; }
+                ctx.moveTo(d.x + d.ox + 1.1, d.y + d.oy);
+                ctx.arc(d.x + d.ox, d.y + d.oy, 1.1, 0, Math.PI * 2);
+            }
+            ctx.fill();
+            // Dots near the cursor: a little bigger, tinted towards the brand pink
+            for (const d of lit) {
+                ctx.fillStyle = `rgba(234,51,103,${(dark ? 0.25 : 0.2) + d.glow * 0.55})`;
+                ctx.beginPath();
+                ctx.arc(d.x + d.ox, d.y + d.oy, 1.1 + d.glow * 1.1, 0, Math.PI * 2);
+                ctx.fill();
+            }
+            return moving;
+        };
+
+        const loop = () => {
+            if (draw()) requestAnimationFrame(loop);
+            else running = false;
+        };
+        const start = () => {
+            if (!running) { running = true; requestAnimationFrame(loop); }
+        };
+
+        window.addEventListener('mousemove', e => { mouse = { x: e.clientX, y: e.clientY }; start(); }, { passive: true });
+        document.addEventListener('mouseleave', () => { mouse = { x: -9999, y: -9999 }; start(); });
+        let resizeTimer;
+        window.addEventListener('resize', () => { clearTimeout(resizeTimer); resizeTimer = setTimeout(resize, 150); });
+        if (themeToggle) themeToggle.addEventListener('click', () => requestAnimationFrame(draw));
+        resize();
+    }
+
     // (Cookie banner removed: the site sets no tracking cookies. Theme choice is kept in localStorage.)
 
     // --- Footer Year & Email Injection ---

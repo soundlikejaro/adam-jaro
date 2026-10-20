@@ -728,25 +728,12 @@ async function build() {
         const size = info ? ` width="${info.width}" height="${info.height}"` : '';
         return `<video class="lab-video w-full h-auto rounded-xl" src="${p.video}" poster="${poster}"${size} muted loop playsinline preload="none" aria-label="${esc(`${p.name}: ${p.tagline}`)}"></video>`;
     };
-    // Background waveforms: real FM waves, y = sin(carrier + index * sin(modulator)).
-    // Whole cycles over one period, drawn twice, so sliding left by one period loops seamlessly.
-    const fmWavePath = (period, height, carrierCycles, modCycles, index) => {
-        const points = [];
-        for (let x = 0; x <= period * 2; x += 4) {
-            const t = (x / period) * Math.PI * 2;
-            const y = height / 2 + (height / 2 - 2) * Math.sin(carrierCycles * t + index * Math.sin(modCycles * t));
-            points.push(`${x},${y.toFixed(1)}`);
-        }
-        return `M${points.join(' L')}`;
-    };
     const labBackground = `
         <div class="lab-bg" aria-hidden="true">
             <div class="lab-orb lab-orb-a"></div>
             <div class="lab-orb lab-orb-b"></div>
             <div class="lab-orb lab-orb-c"></div>
             <div class="lab-grid"></div>
-            <svg class="lab-wave lab-wave-a" viewBox="0 0 2400 120" preserveAspectRatio="none"><path d="${fmWavePath(1200, 120, 3, 1, 2.2)}" /></svg>
-            <svg class="lab-wave lab-wave-b" viewBox="0 0 2400 80" preserveAspectRatio="none"><path d="${fmWavePath(1200, 80, 5, 2, 1.4)}" /></svg>
         </div>`;
     const labContent = `
         ${labBackground}

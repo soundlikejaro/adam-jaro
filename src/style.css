@@ -493,49 +493,28 @@ html:not(.dark) .glass {
 .lab-grid {
     position: absolute;
     inset: 0;
-    background-image: radial-gradient(rgb(255 255 255 / 0.14) 1px, transparent 1.2px);
+    background-image: radial-gradient(rgb(255 255 255 / 0.2) 1.1px, transparent 1.4px);
     background-size: 22px 22px;
     -webkit-mask-image: radial-gradient(ellipse at center, #000 30%, transparent 80%);
     mask-image: radial-gradient(ellipse at center, #000 30%, transparent 80%);
 }
 
 html:not(.dark) .lab-grid {
-    background-image: radial-gradient(rgb(0 0 0 / 0.12) 1px, transparent 1.2px);
+    background-image: radial-gradient(rgb(0 0 0 / 0.16) 1.1px, transparent 1.4px);
 }
+
+/* With a mouse, script.js swaps the CSS grid for a canvas whose dots move away from the cursor */
+.lab-dots {
+    position: absolute;
+    inset: 0;
+    -webkit-mask-image: radial-gradient(ellipse at center, #000 30%, transparent 80%);
+    mask-image: radial-gradient(ellipse at center, #000 30%, transparent 80%);
+}
+
+.lab-bg.has-dots-canvas .lab-grid { display: none; }
 
 html:not(.dark) .lab-orb { opacity: 0.16; }
 html:not(.dark) .lab-orb-c { opacity: 0.08; }
-
-/* Slowly scrolling FM waveforms */
-.lab-wave {
-    position: absolute;
-    left: 0;
-    width: 200vw;
-    fill: none;
-    stroke-width: 1.5;
-    vector-effect: non-scaling-stroke;
-    will-change: transform;
-}
-
-.lab-wave path { vector-effect: non-scaling-stroke; }
-
-.lab-wave-a {
-    top: 62%;
-    height: 120px;
-    stroke: var(--accent-a);
-    opacity: 0.22;
-    animation: lab-scroll 40s linear infinite;
-}
-
-.lab-wave-b {
-    top: 70%;
-    height: 80px;
-    stroke: var(--accent-b);
-    opacity: 0.16;
-    animation: lab-scroll 26s linear infinite reverse;
-}
-
-@keyframes lab-scroll { to { transform: translateX(-100vw); } }
 
 /* Project cards: liquid glass, a touch lighter than the header/footer */
 .lab-card {
@@ -573,8 +552,7 @@ html:not(.dark) .lab-card {
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .lab-orb,
-    .lab-wave { animation: none; }
+    .lab-orb { animation: none; }
     .lab-card,
     .lab-card:hover { transition: none; transform: none; }
 }
