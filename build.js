@@ -321,7 +321,7 @@ async function build() {
         : `<span style="--i:${i}">${word}</span>`).join(' ')}</h1>
                 ${aboutInfo.homeFootnote ? `<p class="intro-footnote mt-3 text-sm text-muted-text" style="animation-delay:${(1.2 + aboutInfo.homeIntro.split(' ').length * 0.07 + 0.6).toFixed(2)}s"><span class="intro-mark">*</span>${aboutInfo.homeFootnote}</p>` : ''}
                 ${aboutInfo.homeTagline ? `<p class="mt-5 text-lg md:text-xl font-light leading-snug text-muted-text">${aboutInfo.homeTagline}</p>` : ''}
-                <p class="mt-5 text-sm text-muted-text">${aboutInfo.clients.slice(0, 7).join(' · ')}</p>
+                ${aboutInfo.homeShowClients ? `<p class="mt-5 text-sm text-muted-text">${aboutInfo.clients.slice(0, 7).join(' · ')}</p>` : ''}
             </div>
             <div id="project-grid" class="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-2 items-start">
                 ${projects.map((project, i) => `

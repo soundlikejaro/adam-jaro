@@ -24,6 +24,8 @@ export const aboutInfo = {
     // Optional second homepage line; leave empty to hide it.
     // Previous: "Ten years in, I still love making things. I've just got better at convincing people it was their idea."
     homeTagline: '',
+    // Show the first 7 clients under the homepage intro (hidden for now; the Info page still lists them all)
+    homeShowClients: false,
     // Small footnote under the intro (HTML). Fades in once the intro animation settles.
     homeFootnote: '<a href="/projects/the-pretender/">Award-winning</a>, cough cough.',
     photo: { src: '/images/adam-jaro.webp', alt: 'Adam Jaro holding a Sony cinema camera on a shoot' },
