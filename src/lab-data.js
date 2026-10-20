@@ -26,7 +26,7 @@ export const labProjects = [
         video: '/media/lab-flauna.mp4',
         body: `
             <p>One species a day, the same for everyone. Five questions (what, where, who, when and why), then a result to share. Each question you answer adds a layer to a pixel-art woodland behind the game, until the scene is complete.</p>
-            <p>I designed and built all of it with Claude Code: the game, the animated scene, a small admin panel for scheduling species, and a backend that keeps tomorrow's answers hidden.</p>
+            <p>I designed and built all of it: the game, the animated scene, a small admin panel for scheduling species, and a backend that keeps tomorrow's answers hidden.</p>
         `,
         builtWith: ['JavaScript', 'Cloudflare Workers', 'Claude Code'],
     },
@@ -52,7 +52,7 @@ export const labProjects = [
         image: '/images/lab-clamsync.webp',
         body: `
             <p>A Mac and Windows app for video editors. Drop in a shoot's footage and it lines up every camera and sound recorder by matching their audio, then exports a synced timeline for Premiere Pro, DaVinci Resolve, Final Cut Pro or Avid. Clips are colour-coded by how they were placed, so you can see at a glance what to check.</p>
-            <p>I'm an editor, not a developer. I built it with Claude Code to replace PluralEyes on my own shoots, and it's grown into a full product, made for real shoots: hundreds of clips over several days, cameras with their clocks set wrong, and audio that drifts.</p>
+            <p>I'm an editor, not a developer. I built it to replace PluralEyes on my own shoots, and it's grown into a full product, made for real shoots: hundreds of clips over several days, cameras with their clocks set wrong, and audio that drifts.</p>
         `,
         builtWith: ['Python', 'FFmpeg', 'Qt', 'Claude Code'],
     },
