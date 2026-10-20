@@ -435,3 +435,8 @@ html:not(.dark) .glass {
     margin: 0 auto 0.75rem;
     background: linear-gradient(90deg, var(--accent-a), var(--accent-b));
 }
+
+/* Lab: stand-in tile when a project has no screenshot yet */
+.lab-tile {
+    background: linear-gradient(135deg, var(--accent-a) 0%, var(--accent-b) 100%);
+}

@@ -7,10 +7,16 @@ import sharp from 'sharp';
 import { projects, aboutInfo, siteConfig } from './src/data.js';
 import { blogPosts } from './src/blog-data.js';
 import { privacyPolicy } from './src/privacy.js';
+import { labIntro, labProjects } from './src/lab-data.js';
 
 const OUT_DIR = '.';
 const SRC_DIR = './src';
 const SITE = 'https://adamjaro.com';
+
+// The Lab page (/lab/) is built but kept hidden until this is true. When true it's
+// indexed by search engines and added to sitemap.xml. Linking it from the header,
+// homepage and Info page is a separate step.
+const LAB_PUBLIC = false;
 
 // Responsive image widths generated for every image in src/images
 const IMG_WIDTHS = [640, 960, 1600];
@@ -690,6 +696,50 @@ async function build() {
         });
     }
 
+    // --- 6b. Lab Page (coding side projects) ---
+    const statusStyles = {
+        'Live': 'bg-emerald-500/15 text-emerald-600 dark:text-emerald-400',
+        'In progress': 'bg-amber-500/15 text-amber-700 dark:text-amber-400',
+        'Prototype': 'bg-sky-500/15 text-sky-700 dark:text-sky-400',
+    };
+    const labContent = `
+        <section id="page-lab" class="page active">
+            <div class="max-w-4xl mx-auto">
+                <div class="mb-8"><a href="/" class="btn-pill nav-link cursor-pointer">← Back to all projects</a></div>
+                <header class="mb-12">
+                    <h1 class="text-3xl md:text-5xl font-bold mb-4 leading-tight">Lab</h1>
+                    <p class="text-xl leading-relaxed font-light text-muted-text max-w-2xl">${labIntro}</p>
+                </header>
+                <div class="space-y-16">
+                    ${labProjects.map((p, i) => `
+                    <article class="grid grid-cols-1 md:grid-cols-5 gap-6 md:gap-10 items-start ${i > 0 ? 'pt-16 border-t border-border-light' : ''}">
+                        <div class="md:col-span-2">
+                            ${p.image
+        ? img(p.image, { alt: `${p.name} screenshot`, sizes: '(min-width: 768px) 340px, 100vw', cls: 'w-full h-auto rounded-sm', lazy: i > 0 })
+        : `<div class="lab-tile aspect-[4/3] rounded-sm flex items-center justify-center p-6" aria-hidden="true"><span class="font-display text-3xl font-bold text-white text-center leading-tight">${p.name}</span></div>`}
+                        </div>
+                        <div class="md:col-span-3">
+                            <div class="flex flex-wrap items-center gap-3 mb-2">
+                                <h2 class="text-2xl md:text-3xl font-bold leading-tight">${p.name}</h2>
+                                <span class="text-xs font-semibold uppercase tracking-wider px-2.5 py-1 rounded-full ${statusStyles[p.status] || 'bg-border-light text-muted-text'}">${p.status}</span>
+                            </div>
+                            <p class="text-lg text-muted-text mb-5">${p.tagline}</p>
+                            <div class="project-text-block text-lg leading-relaxed">${p.body}</div>
+                            ${p.builtWith?.length ? `<p class="mt-5 text-sm text-muted-text"><span class="uppercase tracking-wider">Built with</span> · ${p.builtWith.join(' · ')}</p>` : ''}
+                            ${p.url ? `<div class="mt-6"><a href="${p.url}" target="_blank" rel="noopener" class="btn-pill nav-link">${p.urlLabel || 'Try it'} →</a></div>` : ''}
+                        </div>
+                    </article>`).join('')}
+                </div>
+            </div>
+        </section>
+    `;
+    await writePage(path.join(OUT_DIR, 'lab', 'index.html'), labContent, {
+        title: 'Lab | Adam Jaro',
+        description: 'Side projects by Adam Jaro: daily games and creative tools, designed and coded with Claude Code.',
+        url: `${SITE}/lab/`,
+        noindex: !LAB_PUBLIC
+    });
+
     // --- 7. 404 Page (GitHub Pages serves /404.html for any missing URL) ---
     const notFoundContent = `
         <section id="page-404" class="page active">
@@ -710,7 +760,7 @@ async function build() {
 
     // --- 8. sitemap.xml ---
     // Blog is left out while it's hidden from the nav (see aboutInfo.social in src/data.js)
-    const sitemapUrls = [`${SITE}/`, `${SITE}/info/`, ...projects.map(p => `${SITE}/projects/${p.id}/`), `${SITE}/privacy/`];
+    const sitemapUrls = [`${SITE}/`, `${SITE}/info/`, ...projects.map(p => `${SITE}/projects/${p.id}/`), ...(LAB_PUBLIC ? [`${SITE}/lab/`] : []), `${SITE}/privacy/`];
     const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${sitemapUrls.map(u => `  <url><loc>${u}</loc></url>`).join('\n')}
