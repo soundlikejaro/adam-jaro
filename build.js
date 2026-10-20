@@ -17,6 +17,8 @@ const SITE = 'https://adamjaro.com';
 // indexed by search engines and added to sitemap.xml. Linking it from the header,
 // homepage and Info page is a separate step.
 const LAB_PUBLIC = false;
+// When public, the Lab is also linked from the header, the end of the homepage
+// grid, the Info page and llms.txt.
 
 // Responsive image widths generated for every image in src/images
 const IMG_WIDTHS = [640, 960, 1600];
@@ -301,6 +303,7 @@ async function build() {
             meta_image_alt: esc(meta.imageAlt || 'Adam Jaro, creative director'),
             css_version: cssVersion,
             js_version: jsVersion,
+            nav_lab: LAB_PUBLIC ? `<a href="/lab/" class="text-lg font-medium tracking-wide cursor-pointer nav-link hover:opacity-70 transition-opacity" id="nav-lab">LAB</a>` : '',
         };
         // Function replacer so "$" in content is never treated as a special pattern
         const pageHtml = template.replace(/{{(\w+)}}/g, (match, key) => key in values ? values[key] : match);
@@ -345,6 +348,11 @@ async function build() {
                     </div>
                 `).join('')}
             </div>
+            ${LAB_PUBLIC ? `
+            <p class="max-w-6xl mx-auto mt-16 text-center text-lg text-muted-text">
+                I also build things: daily games and creative tools.
+                <a href="/lab/" class="font-medium text-primary-text hover:underline whitespace-nowrap">See the Lab →</a>
+            </p>` : ''}
         </section>
     `;
     const projectList = {
@@ -406,7 +414,10 @@ async function build() {
                         <div>
                             <h2 class="text-sm uppercase tracking-wider text-muted-text mb-4">What I do</h2>
                             <ul class="space-y-2 text-base">
-                                ${aboutInfo.capabilities.map(c => `<li>${c}</li>`).join('')}
+                                ${aboutInfo.capabilities.map(c => {
+        const href = LAB_PUBLIC && aboutInfo.capabilityLinks?.[c];
+        return `<li>${href ? `<a href="${href}" class="underline hover:text-primary-text">${c} →</a>` : c}</li>`;
+    }).join('')}
                             </ul>
                         </div>
                         <div>
@@ -844,7 +855,13 @@ ${projects.map(p => {
         return `- [${p.title}](${SITE}/projects/${p.id}/): ${p.kind} for ${p.category}. ${projectSummary(p)}${results.length ? ` Results: ${results.join('; ')}.` : ''}`;
     }).join('\n')}
 
-## Contact
+${LAB_PUBLIC ? `## Side projects (Lab)
+
+${labProjects.map(p => `- ${p.url ? `[${p.name}](${p.url})` : p.name} (${p.status.toLowerCase()}): ${p.tagline}. ${plain(p.body).split(/(?<=[.!?])\s/)[0]}`).join('\n')}
+
+More: ${SITE}/lab/
+
+` : ''}## Contact
 
 - [About and contact](${SITE}/info/#contact)
 ${aboutInfo.social.filter(s => s.url.startsWith('http')).map(s => `- [${s.name}](${s.url})`).join('\n')}

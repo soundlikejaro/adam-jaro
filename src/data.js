@@ -50,6 +50,8 @@ export const aboutInfo = {
         'Channel 4', 'The FA', 'Hussle', 'British Soft Drinks Association', 'The Trouble Club',
         'UCL', 'Sephora', 'L’Occitane',
     ],
+    // Capabilities that link somewhere on the Info page (only shown once the Lab is public)
+    capabilityLinks: { 'AI-assisted design and build': '/lab/' },
     contactIntro: 'For projects, collaborations, or just a conversation:',
     contact: [
         { type: 'email-placeholder' },
