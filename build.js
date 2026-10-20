@@ -253,6 +253,13 @@ async function build() {
         { stdio: 'inherit' });
     await fs.copyFile(path.join(SRC_DIR, 'script.js'), path.join(OUT_DIR, 'script.js'));
     await fs.copyFile(path.join(SRC_DIR, 'favicon.svg'), path.join(OUT_DIR, 'favicon.svg'));
+    // Video clips (src/media -> media/), copied as-is
+    if (existsSync(path.join(SRC_DIR, 'media'))) {
+        await fs.mkdir(path.join(OUT_DIR, 'media'), { recursive: true });
+        for (const file of await fs.readdir(path.join(SRC_DIR, 'media'))) {
+            if (/\.(mp4|webm)$/i.test(file)) await fs.copyFile(path.join(SRC_DIR, 'media', file), path.join(OUT_DIR, 'media', file));
+        }
+    }
     const cssVersion = await contentHash(path.join(OUT_DIR, 'style.css'));
     const jsVersion = await contentHash(path.join(OUT_DIR, 'script.js'));
 
@@ -702,6 +709,14 @@ async function build() {
         'In progress': 'bg-amber-500/15 text-amber-700 dark:text-amber-400',
         'Prototype': 'bg-sky-500/15 text-sky-700 dark:text-sky-400',
     };
+    // Looping, silent clip. script.js plays it only while it's on screen,
+    // and never for people who prefer reduced motion (they see the still frame).
+    const labVideo = (p) => {
+        const info = imageInfo.get(p.image);
+        const poster = info ? (info.variants.find(v => v.w >= 960) || info.variants[info.variants.length - 1]).url : p.image;
+        const size = info ? ` width="${info.width}" height="${info.height}"` : '';
+        return `<video class="lab-video w-full h-auto rounded-sm" src="${p.video}" poster="${poster}"${size} muted loop playsinline preload="none" aria-label="${esc(`${p.name}: ${p.tagline}`)}"></video>`;
+    };
     const labContent = `
         <section id="page-lab" class="page active">
             <div class="max-w-4xl mx-auto">
@@ -714,7 +729,9 @@ async function build() {
                     ${labProjects.map((p, i) => `
                     <article class="grid grid-cols-1 md:grid-cols-5 gap-6 md:gap-10 items-start ${i > 0 ? 'pt-16 border-t border-border-light' : ''}">
                         <div class="md:col-span-2">
-                            ${p.image
+                            ${p.video
+        ? labVideo(p, i)
+        : p.image
         ? img(p.image, { alt: `${p.name} screenshot`, sizes: '(min-width: 768px) 340px, 100vw', cls: 'w-full h-auto rounded-sm', lazy: i > 0 })
         : `<div class="lab-tile aspect-[4/3] rounded-sm flex items-center justify-center p-6" aria-hidden="true"><span class="font-display text-3xl font-bold text-white text-center leading-tight">${p.name}</span></div>`}
                         </div>

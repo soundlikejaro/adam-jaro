@@ -58,6 +58,20 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // --- Looping clips (Lab page) ---
+    // Play only while on screen; leave the still frame for reduced-motion users.
+    const loopVideos = document.querySelectorAll('video.lab-video');
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (loopVideos.length && !reduceMotion && 'IntersectionObserver' in window) {
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.play().catch(() => {});
+                else entry.target.pause();
+            });
+        }, { threshold: 0.25 });
+        loopVideos.forEach(video => observer.observe(video));
+    }
+
     // (Cookie banner removed: the site sets no tracking cookies. Theme choice is kept in localStorage.)
 
     // --- Footer Year & Email Injection ---

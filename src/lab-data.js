@@ -9,6 +9,7 @@
 //   url        Optional link to try it (code stays private, so no repo links)
 //   urlLabel   Text for that link
 //   image      Optional screenshot in src/images (e.g. '/images/lab-flauna.webp'); a gradient tile shows if empty
+//   video      Optional looping clip in src/media (e.g. '/media/lab-flauna.mp4'); `image` is its still frame
 //   body       A short paragraph or two (HTML)
 //   builtWith  List of tools/tech
 
@@ -21,12 +22,13 @@ export const labProjects = [
         status: 'Live',
         url: 'https://flauna.app',
         urlLabel: 'Play Flauna',
-        image: '',
+        image: '/images/lab-flauna.webp',
+        video: '/media/lab-flauna.mp4',
         body: `
-            <p>[Placeholder] What Flauna is, who it's for and how a daily round works.</p>
-            <p>[Placeholder] What I designed and built, and anything interesting about how.</p>
+            <p>One species a day, the same for everyone. Five questions (what, where, who, when and why), then a result to share. Each question you answer adds a layer to a pixel-art woodland behind the game, until the scene is complete.</p>
+            <p>I designed and built all of it with Claude Code: the game, the animated scene, a small admin panel for scheduling species, and a backend that keeps tomorrow's answers hidden.</p>
         `,
-        builtWith: ['[Placeholder]', 'Claude Code'],
+        builtWith: ['JavaScript', 'Cloudflare Workers', 'Claude Code'],
     },
     {
         name: 'FM synth',
@@ -42,16 +44,16 @@ export const labProjects = [
         builtWith: ['[Placeholder]', 'Claude Code'],
     },
     {
-        name: 'Clam sync',
-        tagline: 'A tool for syncing video and audio',
+        name: 'Clam Sync',
+        tagline: 'Drop a folder, get a synced timeline',
         status: 'In progress',
         url: '',
         urlLabel: '',
-        image: '',
+        image: '/images/lab-clamsync.webp',
         body: `
-            <p>[Placeholder] The problem it solves and who it's for.</p>
-            <p>[Placeholder] What I designed and built.</p>
+            <p>A Mac and Windows app for video editors. Drop in a shoot's footage and it lines up every camera and sound recorder by matching their audio, then exports a synced timeline for Premiere Pro, DaVinci Resolve, Final Cut Pro or Avid. Clips are colour-coded by how they were placed, so you can see at a glance what to check.</p>
+            <p>I'm an editor, not a developer. I built it to replace PluralEyes on my own shoots, with Claude Code, and it's grown into a product with its own brand: hundreds of clips over several days, cameras with their clocks set wrong, and drifting audio.</p>
         `,
-        builtWith: ['[Placeholder]', 'Claude Code'],
+        builtWith: ['Python', 'FFmpeg', 'Qt', 'Claude Code'],
     },
 ];
