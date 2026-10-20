@@ -70,7 +70,7 @@ export const projects = [
         title: 'The Pretender',
         category: 'Kooth x The Diana Award',
         kind: 'campaign film',
-        role: 'Creative direction, script & director',
+        role: 'Creative director & script',
         award: 'Brand Film Awards 2026, Winner',
         thumbnail: '/images/thepretender.webp',
         content: [
@@ -134,7 +134,7 @@ export const projects = [
         title: 'Join the mental health revolution',
         category: 'MindLabs',
         kind: 'launch film',
-        role: 'Launch concept & director',
+        role: 'Launch concept & creative director',
         thumbnail: '/images/mindlabs.webp',
         content: [
             {
@@ -222,7 +222,7 @@ export const projects = [
         title: 'Together, we create the amazing',
         category: 'Royal Albert Hall America',
         kind: 'fundraising film',
-        role: 'Narrative, script & director',
+        role: 'Narrative, script & creative director',
         thumbnail: '/images/RAHA.webp',
         content: [
             {
@@ -285,7 +285,7 @@ export const projects = [
         title: 'Hussle x Fiit',
         category: 'Hussle x Fiit',
         kind: 'partnership launch film',
-        role: 'Concept & director',
+        role: 'Concept & creative director',
         thumbnail: '/images/HusslexFiit.webp',
         content: [
             {
@@ -314,7 +314,7 @@ export const projects = [
         title: 'Here comes trouble',
         category: 'Trouble Club',
         kind: 'brand campaign',
-        role: 'Campaign concept, director & edit',
+        role: 'Campaign concept, creative director & edit',
         thumbnail: '/images/herecomestrouble.webp',
         content: [
             {
@@ -347,7 +347,7 @@ export const projects = [
         title: 'Unwind',
         category: 'MindLabs',
         kind: 'breathwork and meditation series',
-        role: 'Creative vision & director',
+        role: 'Creative director',
         thumbnail: '/images/unwind.webp',
         content: [
             {
