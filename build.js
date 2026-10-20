@@ -306,7 +306,7 @@ async function build() {
             </div>
             <div id="project-grid" class="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-2 items-start">
                 ${projects.map((project, i) => `
-                    <a href="/projects/${project.id}/" class="group relative block project-thumbnail" aria-label="${esc(`${project.title}, ${project.category}`)}">
+                    <a href="/projects/${project.id}/" class="group relative block project-thumbnail" aria-label="${esc(`${project.title}, ${project.kind} for ${project.category}. ${project.role}`)}">
                         <div class="relative overflow-hidden aspect-[4/3]">
                             ${img(project.thumbnail, {
         alt: projectSummary(project),
@@ -315,15 +315,20 @@ async function build() {
         lazy: i > 3,
         priority: i === 0
     })}
-                            <div class="project-thumbnail-desktop-overlay absolute inset-0 bg-overlay-bg/90 p-6 flex flex-col justify-end opacity-0 transition-opacity duration-300 md:group-hover:opacity-100 md:group-focus-visible:opacity-100" aria-hidden="true">
-                                <p class="text-xl font-bold text-primary-text mb-1">${project.title}</p>
-                                <p class="text-sm text-muted-text uppercase tracking-wider">${project.category}</p>
+                            <div class="tile-overlay absolute inset-0 hidden md:flex flex-col items-center justify-center text-center p-8 opacity-0 transition-opacity duration-300 md:group-hover:opacity-100 md:group-focus-visible:opacity-100" aria-hidden="true">
+                                <div class="tile-overlay-content">
+                                    ${project.category.toLowerCase() !== project.title.toLowerCase() ? `<p class="text-xs uppercase tracking-[0.2em] text-white/70 mb-3">${project.category}</p>` : ''}
+                                    <p class="font-display text-3xl lg:text-4xl font-bold text-white leading-tight mb-3">${project.title}</p>
+                                    <p class="text-gradient text-sm font-semibold uppercase tracking-wider mb-1">${project.kind}</p>
+                                    <p class="text-sm text-white/80">${project.role}</p>
+                                </div>
                             </div>
                         </div>
                     </a>
                     <div class="project-thumbnail-mobile-title p-4 md:hidden" aria-hidden="true">
                         <p class="text-lg font-bold">${project.title}</p>
-                        <p class="text-sm text-muted-text">${project.category}</p>
+                        <p class="text-sm text-muted-text">${project.category} · ${project.kind}</p>
+                        <p class="text-sm text-muted-text">${project.role}</p>
                     </div>
                 `).join('')}
             </div>

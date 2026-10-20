@@ -70,6 +70,7 @@ export const projects = [
         title: 'The Pretender',
         category: 'Kooth x The Diana Award',
         kind: 'campaign film',
+        role: 'Creative direction, script & director',
         award: 'Brand Film Awards 2026, Winner',
         thumbnail: '/images/thepretender.webp',
         content: [
@@ -99,6 +100,7 @@ export const projects = [
         title: 'Your Move',
         category: 'Kooth',
         kind: 'youth mental health campaign',
+        role: 'Creative strategy & campaign identity',
         thumbnail: '/images/yourmove1.webp',
         content: [
             {
@@ -132,6 +134,7 @@ export const projects = [
         title: 'Join the mental health revolution',
         category: 'MindLabs',
         kind: 'launch film',
+        role: 'Launch concept & director',
         thumbnail: '/images/mindlabs.webp',
         content: [
             {
@@ -160,6 +163,7 @@ export const projects = [
         title: 'Bring the gym home',
         category: 'Fiit',
         kind: 'national TV ad',
+        role: 'Concept, script & production',
         thumbnail: '/images/bringthegymhome.webp',
         content: [
             {
@@ -188,6 +192,7 @@ export const projects = [
         title: 'The light show',
         category: 'British Soft Drinks Association',
         kind: 'influencer event',
+        role: 'Creative direction & influencer strategy',
         thumbnail: '/images/thelightshow.webp',
         content: [
             {
@@ -217,6 +222,7 @@ export const projects = [
         title: 'Together, we create the amazing',
         category: 'Royal Albert Hall America',
         kind: 'fundraising film',
+        role: 'Narrative, script & director',
         thumbnail: '/images/RAHA.webp',
         content: [
             {
@@ -245,6 +251,7 @@ export const projects = [
         title: 'London fashion week SS24',
         category: 'Emilia Wickstead',
         kind: 'show livestream',
+        role: 'Project lead, livestream & content',
         thumbnail: '/images/LFW24.webp',
         content: [
             {
@@ -278,6 +285,7 @@ export const projects = [
         title: 'Hussle x Fiit',
         category: 'Hussle x Fiit',
         kind: 'partnership launch film',
+        role: 'Concept & director',
         thumbnail: '/images/HusslexFiit.webp',
         content: [
             {
@@ -306,6 +314,7 @@ export const projects = [
         title: 'Here comes trouble',
         category: 'Trouble Club',
         kind: 'brand campaign',
+        role: 'Campaign concept, director & edit',
         thumbnail: '/images/herecomestrouble.webp',
         content: [
             {
@@ -338,6 +347,7 @@ export const projects = [
         title: 'Unwind',
         category: 'MindLabs',
         kind: 'breathwork and meditation series',
+        role: 'Creative vision & director',
         thumbnail: '/images/unwind.webp',
         content: [
             {

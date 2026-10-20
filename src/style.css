@@ -407,3 +407,31 @@ html:not(.dark) .glass {
         0 10px 30px -12px rgb(0 0 0 / 0.18),
         0 0 0 1px rgb(0 0 0 / 0.04);
 }
+
+/* ---------- Homepage tile hover ---------- */
+/* Dark, blurred glass over the image so the text is striking in both themes */
+.tile-overlay {
+    background: radial-gradient(ellipse at center, rgb(0 0 0 / 0.55) 0%, rgb(0 0 0 / 0.72) 100%);
+    -webkit-backdrop-filter: blur(6px) saturate(140%);
+    backdrop-filter: blur(6px) saturate(140%);
+}
+
+.tile-overlay-content {
+    transform: translateY(10px);
+    transition: transform 0.45s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.group:hover .tile-overlay-content,
+.group:focus-visible .tile-overlay-content {
+    transform: translateY(0);
+}
+
+/* Short gradient rule under the title */
+.tile-overlay-content .text-gradient::before {
+    content: '';
+    display: block;
+    width: 2.5rem;
+    height: 2px;
+    margin: 0 auto 0.75rem;
+    background: linear-gradient(90deg, var(--accent-a), var(--accent-b));
+}
