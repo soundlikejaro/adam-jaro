@@ -303,7 +303,7 @@ async function build() {
             meta_image_alt: esc(meta.imageAlt || 'Adam Jaro, creative director'),
             css_version: cssVersion,
             js_version: jsVersion,
-            nav_lab: LAB_PUBLIC ? `<a href="/lab/" class="text-base md:text-lg font-medium tracking-wide cursor-pointer nav-link hover:opacity-70 transition-opacity" id="nav-lab">LAB</a>` : '',
+            nav_lab: LAB_PUBLIC ? `<a href="/lab/" class="text-lg font-medium tracking-wide cursor-pointer nav-link hover:opacity-70 transition-opacity" id="nav-lab">LAB</a>` : '',
         };
         // Function replacer so "$" in content is never treated as a special pattern
         const pageHtml = template.replace(/{{(\w+)}}/g, (match, key) => key in values ? values[key] : match);
