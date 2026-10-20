@@ -744,9 +744,26 @@ async function build() {
                     <h1 class="text-3xl md:text-5xl font-bold mb-4 leading-tight">Lab</h1>
                     <div class="lab-intro text-xl leading-relaxed font-light text-muted-text max-w-2xl space-y-4">${labIntro}</div>
                 </header>
+                <!-- Filters: hidden until script.js sets them up, so they never show without JS -->
+                <div id="lab-filters" class="lab-filters glass flex flex-col sm:flex-row gap-3 sm:gap-4 p-3 mb-6 md:mb-8 rounded-2xl sm:rounded-full" hidden>
+                    <label class="lab-select">
+                        <span class="lab-select-label">Show</span>
+                        <select id="lab-filter-type">
+                            <option value="all">All projects</option>
+                            ${[...new Set(labProjects.map(p => p.type))].map(t => `<option value="${t}">${t}s</option>`).join('')}
+                        </select>
+                    </label>
+                    <label class="lab-select">
+                        <span class="lab-select-label">Jump to</span>
+                        <select id="lab-jump">
+                            <option value="">Choose a project</option>
+                            ${labProjects.map(p => `<option value="${generateSlug(p.name)}">${p.name}</option>`).join('')}
+                        </select>
+                    </label>
+                </div>
                 <div class="space-y-6 md:space-y-8">
                     ${labProjects.map((p, i) => `
-                    <article class="lab-card grid grid-cols-1 md:grid-cols-5 gap-6 md:gap-10 items-start p-5 md:p-8 rounded-2xl md:rounded-3xl">
+                    <article id="${generateSlug(p.name)}" data-type="${p.type}" class="lab-card scroll-mt-28 md:scroll-mt-32 grid grid-cols-1 md:grid-cols-5 gap-6 md:gap-10 items-start p-5 md:p-8 rounded-2xl md:rounded-3xl">
                         <div class="md:col-span-2">
                             ${p.video
         ? labVideo(p, i)
@@ -758,6 +775,7 @@ async function build() {
                             <div class="flex flex-wrap items-center gap-3 mb-2">
                                 <h2 class="text-2xl md:text-3xl font-bold leading-tight">${p.name}</h2>
                                 <span class="text-xs font-semibold uppercase tracking-wider px-2.5 py-1 rounded-full ${statusStyles[p.status] || 'bg-border-light text-muted-text'}">${p.status}</span>
+                                <span class="text-xs font-semibold uppercase tracking-wider px-2.5 py-1 rounded-full border border-border-light text-muted-text">${p.type}</span>
                             </div>
                             <p class="text-lg text-muted-text mb-5">${p.tagline}</p>
                             <div class="project-text-block text-lg leading-relaxed">${p.body}</div>

@@ -5,6 +5,7 @@
 // Each project:
 //   name       Project name
 //   tagline    One line, shown under the name
+//   type       'Game' | 'Tool' (used by the filter at the top of the page)
 //   status     'Live' | 'In progress' | 'Prototype'
 //   url        Optional link to try it (code stays private, so no repo links)
 //   urlLabel   Text for that link
@@ -23,6 +24,7 @@ export const labProjects = [
     {
         name: 'Flauna',
         tagline: 'Daily flora & fauna trivia',
+        type: 'Game',
         status: 'Live',
         url: 'https://flauna.app',
         urlLabel: 'Play Flauna',
@@ -37,6 +39,7 @@ export const labProjects = [
     {
         name: 'FM synth',
         tagline: 'A daily puzzle on a four-track FM synth',
+        type: 'Game',
         status: 'In progress',
         url: '',
         urlLabel: '',
@@ -50,6 +53,7 @@ export const labProjects = [
     {
         name: 'Clam Sync',
         tagline: 'Drop a folder, get a synced timeline',
+        type: 'Tool',
         status: 'In progress',
         url: '',
         urlLabel: '',

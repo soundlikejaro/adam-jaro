@@ -556,3 +556,74 @@ html:not(.dark) .lab-card {
     .lab-card,
     .lab-card:hover { transition: none; transform: none; }
 }
+
+/* Lab filter bar: two glass dropdowns */
+.lab-select {
+    position: relative;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0 0.25rem 0 1rem;
+    border-radius: 9999px;
+    background: rgb(255 255 255 / 0.05);
+    border: 1px solid rgb(255 255 255 / 0.08);
+    transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.lab-select:hover,
+.lab-select:focus-within {
+    border-color: rgb(234 51 103 / 0.5);
+    background: rgb(255 255 255 / 0.08);
+}
+
+.lab-select-label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: rgb(var(--color-muted-text));
+    white-space: nowrap;
+}
+
+.lab-select select {
+    flex: 1;
+    min-width: 0;
+    appearance: none;
+    -webkit-appearance: none;
+    background: transparent;
+    border: 0;
+    color: rgb(var(--color-primary-text));
+    font: inherit;
+    font-weight: 500;
+    padding: 0.7rem 2.5rem 0.7rem 0;
+    cursor: pointer;
+    outline: none;
+}
+
+/* The open menu uses the system list; keep its text readable in both themes */
+.lab-select select option {
+    color: #111;
+    background: #fff;
+}
+
+/* Chevron */
+.lab-select::after {
+    content: '';
+    position: absolute;
+    right: 1.1rem;
+    top: 50%;
+    width: 0.5rem;
+    height: 0.5rem;
+    border-right: 2px solid var(--accent-a);
+    border-bottom: 2px solid var(--accent-a);
+    transform: translateY(-70%) rotate(45deg);
+    pointer-events: none;
+}
+
+html:not(.dark) .lab-select {
+    background: rgb(255 255 255 / 0.6);
+    border-color: rgb(0 0 0 / 0.08);
+}
+
+/* Cards hidden by the filter */
+.lab-card[hidden] { display: none; }

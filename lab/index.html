@@ -47,7 +47,7 @@
         rel="stylesheet">
 
     <!-- Styles are compiled at build time (Tailwind + src/style.css) -->
-    <link rel="stylesheet" href="/style.css?v=e6f97116">
+    <link rel="stylesheet" href="/style.css?v=d01f7e6f">
     
 </head>
 
@@ -86,9 +86,26 @@
     <p>Some fix a problem in my own workflow, like Clam Sync, which syncs a shoot's footage so I don't have to. Others turn an interest into a small daily game. I design and code them all with Claude Code, and most start with the same question: could I make that?</p>
 </div>
                 </header>
+                <!-- Filters: hidden until script.js sets them up, so they never show without JS -->
+                <div id="lab-filters" class="lab-filters glass flex flex-col sm:flex-row gap-3 sm:gap-4 p-3 mb-6 md:mb-8 rounded-2xl sm:rounded-full" hidden>
+                    <label class="lab-select">
+                        <span class="lab-select-label">Show</span>
+                        <select id="lab-filter-type">
+                            <option value="all">All projects</option>
+                            <option value="Game">Games</option><option value="Tool">Tools</option>
+                        </select>
+                    </label>
+                    <label class="lab-select">
+                        <span class="lab-select-label">Jump to</span>
+                        <select id="lab-jump">
+                            <option value="">Choose a project</option>
+                            <option value="flauna">Flauna</option><option value="fm-synth">FM synth</option><option value="clam-sync">Clam Sync</option>
+                        </select>
+                    </label>
+                </div>
                 <div class="space-y-6 md:space-y-8">
                     
-                    <article class="lab-card grid grid-cols-1 md:grid-cols-5 gap-6 md:gap-10 items-start p-5 md:p-8 rounded-2xl md:rounded-3xl">
+                    <article id="flauna" data-type="Game" class="lab-card scroll-mt-28 md:scroll-mt-32 grid grid-cols-1 md:grid-cols-5 gap-6 md:gap-10 items-start p-5 md:p-8 rounded-2xl md:rounded-3xl">
                         <div class="md:col-span-2">
                             <video class="lab-video w-full h-auto rounded-xl" src="/media/lab-flauna.mp4" poster="/images/lab-flauna.webp" width="960" height="720" muted loop playsinline preload="none" aria-label="Flauna: Daily flora &amp; fauna trivia"></video>
                         </div>
@@ -96,6 +113,7 @@
                             <div class="flex flex-wrap items-center gap-3 mb-2">
                                 <h2 class="text-2xl md:text-3xl font-bold leading-tight">Flauna</h2>
                                 <span class="text-xs font-semibold uppercase tracking-wider px-2.5 py-1 rounded-full bg-emerald-500/15 text-emerald-600 dark:text-emerald-400">Live</span>
+                                <span class="text-xs font-semibold uppercase tracking-wider px-2.5 py-1 rounded-full border border-border-light text-muted-text">Game</span>
                             </div>
                             <p class="text-lg text-muted-text mb-5">Daily flora & fauna trivia</p>
                             <div class="project-text-block text-lg leading-relaxed">
@@ -106,7 +124,7 @@
                             <div class="mt-6"><a href="https://flauna.app" target="_blank" rel="noopener" class="btn-pill nav-link">Play Flauna →</a></div>
                         </div>
                     </article>
-                    <article class="lab-card grid grid-cols-1 md:grid-cols-5 gap-6 md:gap-10 items-start p-5 md:p-8 rounded-2xl md:rounded-3xl">
+                    <article id="fm-synth" data-type="Game" class="lab-card scroll-mt-28 md:scroll-mt-32 grid grid-cols-1 md:grid-cols-5 gap-6 md:gap-10 items-start p-5 md:p-8 rounded-2xl md:rounded-3xl">
                         <div class="md:col-span-2">
                             <img src="/images/lab-fm.webp" srcset="/images/lab-fm-640.webp 640w, /images/lab-fm-960.webp 960w, /images/lab-fm.webp 1600w" sizes="(min-width: 768px) 340px, 100vw" width="1600" height="1200" alt="FM synth screenshot" class="w-full h-auto rounded-xl" loading="lazy" decoding="async">
                         </div>
@@ -114,6 +132,7 @@
                             <div class="flex flex-wrap items-center gap-3 mb-2">
                                 <h2 class="text-2xl md:text-3xl font-bold leading-tight">FM synth</h2>
                                 <span class="text-xs font-semibold uppercase tracking-wider px-2.5 py-1 rounded-full bg-amber-500/15 text-amber-700 dark:text-amber-400">In progress</span>
+                                <span class="text-xs font-semibold uppercase tracking-wider px-2.5 py-1 rounded-full border border-border-light text-muted-text">Game</span>
                             </div>
                             <p class="text-lg text-muted-text mb-5">A daily puzzle on a four-track FM synth</p>
                             <div class="project-text-block text-lg leading-relaxed">
@@ -124,7 +143,7 @@
                             
                         </div>
                     </article>
-                    <article class="lab-card grid grid-cols-1 md:grid-cols-5 gap-6 md:gap-10 items-start p-5 md:p-8 rounded-2xl md:rounded-3xl">
+                    <article id="clam-sync" data-type="Tool" class="lab-card scroll-mt-28 md:scroll-mt-32 grid grid-cols-1 md:grid-cols-5 gap-6 md:gap-10 items-start p-5 md:p-8 rounded-2xl md:rounded-3xl">
                         <div class="md:col-span-2">
                             <img src="/images/lab-clamsync.webp" srcset="/images/lab-clamsync-640.webp 640w, /images/lab-clamsync-960.webp 960w, /images/lab-clamsync.webp 1600w" sizes="(min-width: 768px) 340px, 100vw" width="1600" height="956" alt="Clam Sync screenshot" class="w-full h-auto rounded-xl" loading="lazy" decoding="async">
                         </div>
@@ -132,6 +151,7 @@
                             <div class="flex flex-wrap items-center gap-3 mb-2">
                                 <h2 class="text-2xl md:text-3xl font-bold leading-tight">Clam Sync</h2>
                                 <span class="text-xs font-semibold uppercase tracking-wider px-2.5 py-1 rounded-full bg-amber-500/15 text-amber-700 dark:text-amber-400">In progress</span>
+                                <span class="text-xs font-semibold uppercase tracking-wider px-2.5 py-1 rounded-full border border-border-light text-muted-text">Tool</span>
                             </div>
                             <p class="text-lg text-muted-text mb-5">Drop a folder, get a synced timeline</p>
                             <div class="project-text-block text-lg leading-relaxed">
@@ -172,7 +192,7 @@
         </div>
     </footer>
     <!-- Main Script -->
-    <script type="module" src="/script.js?v=1e4ac685"></script>
+    <script type="module" src="/script.js?v=25261e6b"></script>
 </body>
 
 </html>

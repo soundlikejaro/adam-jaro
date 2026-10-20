@@ -72,6 +72,31 @@ document.addEventListener('DOMContentLoaded', () => {
         loopVideos.forEach(video => observer.observe(video));
     }
 
+    // --- Lab filters: show by type, and jump to a project ---
+    const labFilters = document.getElementById('lab-filters');
+    if (labFilters) {
+        const typeSelect = document.getElementById('lab-filter-type');
+        const jumpSelect = document.getElementById('lab-jump');
+        const cards = [...document.querySelectorAll('.lab-card')];
+        labFilters.hidden = false;
+
+        const applyFilter = () => {
+            const type = typeSelect.value;
+            cards.forEach(card => { card.hidden = type !== 'all' && card.dataset.type !== type; });
+        };
+        typeSelect.addEventListener('change', applyFilter);
+
+        jumpSelect.addEventListener('change', () => {
+            const card = document.getElementById(jumpSelect.value);
+            if (!card) return;
+            // If the filter is hiding it, show everything again first
+            if (card.hidden) { typeSelect.value = 'all'; applyFilter(); }
+            card.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' });
+            history.replaceState(null, '', '#' + card.id);
+            jumpSelect.value = '';
+        });
+    }
+
     // --- Lab background: dots that move out of the way of the mouse ---
     // Mouse/trackpad only, and not for reduced-motion users (they keep the still CSS grid).
     const labBg = document.querySelector('.lab-bg');
