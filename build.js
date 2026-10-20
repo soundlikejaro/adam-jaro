@@ -745,18 +745,17 @@ async function build() {
                     <div class="lab-intro text-xl leading-relaxed font-light text-muted-text max-w-2xl space-y-4">${labIntro}</div>
                 </header>
                 <!-- Filters: hidden until script.js sets them up, so they never show without JS -->
-                <div id="lab-filters" class="lab-filters glass flex flex-col sm:flex-row gap-3 sm:gap-4 p-3 mb-6 md:mb-8 rounded-2xl sm:rounded-full" hidden>
+                <div id="lab-filters" class="lab-filters flex flex-wrap gap-2 mb-4 md:mb-5" hidden>
                     <label class="lab-select">
-                        <span class="lab-select-label">Show</span>
+                        <span class="lab-select-label sr-only sm:not-sr-only">Show</span>
                         <select id="lab-filter-type">
                             <option value="all">All projects</option>
                             ${[...new Set(labProjects.map(p => p.type))].map(t => `<option value="${t}">${t}s</option>`).join('')}
                         </select>
                     </label>
                     <label class="lab-select">
-                        <span class="lab-select-label">Jump to</span>
-                        <select id="lab-jump">
-                            <option value="">Choose a project</option>
+                        <select id="lab-jump" aria-label="Jump to a project">
+                            <option value="">Jump to a project</option>
                             ${labProjects.map(p => `<option value="${generateSlug(p.name)}">${p.name}</option>`).join('')}
                         </select>
                     </label>
