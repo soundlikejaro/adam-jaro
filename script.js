@@ -83,8 +83,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const ctx = canvas.getContext('2d');
 
         const GAP = 22;        // same spacing as the CSS grid
-        const RADIUS = 150;    // how far the cursor's influence reaches
-        const PUSH = 16;       // max distance a dot moves
+        const RADIUS = 450;    // how far the cursor's influence reaches
+        const PUSH = 40;       // max distance a dot moves
         const EASE = 0.14;     // how quickly dots follow (0-1)
         let width = 0, height = 0, dots = [];
         let mouse = { x: -9999, y: -9999 };
@@ -120,7 +120,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const dist = Math.hypot(dx, dy);
                 let tx = 0, ty = 0, tg = 0;
                 if (dist < RADIUS && dist > 0.01) {
-                    const strength = (1 - dist / RADIUS) ** 2;
+                    const strength = (1 - dist / RADIUS) ** 1.6;
                     tx = (dx / dist) * PUSH * strength;
                     ty = (dy / dist) * PUSH * strength;
                     tg = strength;
@@ -134,13 +134,23 @@ document.addEventListener('DOMContentLoaded', () => {
                 ctx.arc(d.x + d.ox, d.y + d.oy, 1.1, 0, Math.PI * 2);
             }
             ctx.fill();
-            // Dots near the cursor: a little bigger, tinted towards the brand pink
-            for (const d of lit) {
-                ctx.fillStyle = `rgba(234,51,103,${(dark ? 0.25 : 0.2) + d.glow * 0.55})`;
+            // Dots near the cursor: a little bigger, tinted towards the brand pink.
+            // Grouped into a few brightness steps so each step is one fill.
+            const STEPS = 8;
+            const buckets = Array.from({ length: STEPS }, () => []);
+            for (const d of lit) buckets[Math.min(STEPS - 1, Math.floor(d.glow * STEPS))].push(d);
+            buckets.forEach((group, i) => {
+                if (!group.length) return;
+                const glow = (i + 0.5) / STEPS;
+                ctx.fillStyle = `rgba(234,51,103,${(dark ? 0.25 : 0.2) + glow * 0.55})`;
                 ctx.beginPath();
-                ctx.arc(d.x + d.ox, d.y + d.oy, 1.1 + d.glow * 1.1, 0, Math.PI * 2);
+                const r = 1.1 + glow * 1.1;
+                for (const d of group) {
+                    ctx.moveTo(d.x + d.ox + r, d.y + d.oy);
+                    ctx.arc(d.x + d.ox, d.y + d.oy, r, 0, Math.PI * 2);
+                }
                 ctx.fill();
-            }
+            });
             return moving;
         };
 
