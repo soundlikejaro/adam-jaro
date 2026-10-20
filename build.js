@@ -16,7 +16,7 @@ const SITE = 'https://adamjaro.com';
 // The Lab page (/lab/) is built but kept hidden until this is true. When true it's
 // indexed by search engines and added to sitemap.xml. Linking it from the header,
 // homepage and Info page is a separate step.
-const LAB_PUBLIC = false;
+const LAB_PUBLIC = true;
 // When public, the Lab is also linked from the header, the end of the homepage
 // grid, the Info page and llms.txt.
 

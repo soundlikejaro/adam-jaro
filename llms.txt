@@ -53,6 +53,14 @@ Kooth, The Diana Award, Royal Albert Hall, Emilia Wickstead, Fiit, MindLabs, Cha
 - [Here comes trouble](https://adamjaro.com/projects/here-comes-trouble/): brand campaign for Trouble Club. The Trouble Club is a community and talks organisation for women. Results: A refreshed, more energetic brand across the club's digital channels; Greater appeal to the younger audience the club wanted to reach; A flexible asset library the team could keep using.
 - [Unwind](https://adamjaro.com/projects/unwind/): breathwork and meditation series for MindLabs. At MindLabs, content was the product as well as the marketing. Results: Two flagship series in the MindLabs app; Gave the content library a distinct identity in a crowded category.
 
+## Side projects (Lab)
+
+- [Flauna](https://flauna.app) (live): Daily flora & fauna trivia. One species a day, the same for everyone.
+- FM synth (in progress): A daily puzzle on a four-track FM synth. A pocket synth with four tracks: bass, keys, lead and drums.
+- Clam Sync (in progress): Drop a folder, get a synced timeline. A Mac and Windows app for video editors.
+
+More: https://adamjaro.com/lab/
+
 ## Contact
 
 - [About and contact](https://adamjaro.com/info/#contact)
