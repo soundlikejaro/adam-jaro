@@ -83,8 +83,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const ctx = canvas.getContext('2d');
 
         const GAP = 22;        // same spacing as the CSS grid
-        const RADIUS = 450;    // how far the cursor's influence reaches
-        const PUSH = 40;       // max distance a dot moves
+        const RADIUS = 200;    // how far the cursor's influence reaches
+        const PUSH = 22;       // max distance a dot moves
         const EASE = 0.14;     // how quickly dots follow (0-1)
         let width = 0, height = 0, dots = [];
         let mouse = { x: -9999, y: -9999 };
