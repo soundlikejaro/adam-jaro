@@ -57,7 +57,7 @@ Kooth, The Diana Award, Royal Albert Hall, Emilia Wickstead, Fiit, MindLabs, Cha
 
 - [Flauna](https://flauna.app) (live): Daily flora & fauna trivia. One species a day, the same for everyone.
 - FM synth (in progress): A daily puzzle on a four-track FM synth. A pocket synth with four tracks: bass, keys, lead and drums.
-- Clam Sync (in progress): Drop a folder, get a synced timeline. A Mac and Windows app for video editors.
+- [Clam Sync](https://clamsync.com) (live): Drop a folder, get a synced timeline. A Mac and Windows app for video editors.
 
 More: https://adamjaro.com/lab/
 

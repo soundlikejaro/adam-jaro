@@ -54,9 +54,9 @@ export const labProjects = [
         name: 'Clam Sync',
         tagline: 'Drop a folder, get a synced timeline',
         type: 'Tool',
-        status: 'In progress',
-        url: '',
-        urlLabel: '',
+        status: 'Live',
+        url: 'https://clamsync.com',
+        urlLabel: 'Get Clam Sync',
         image: '/images/lab-clamsync.webp',
         body: `
             <p>A Mac and Windows app for video editors. Drop in a shoot's footage and it lines up every camera and sound recorder by matching their audio, then exports a synced timeline for Premiere Pro, DaVinci Resolve, Final Cut Pro or Avid. Clips are colour-coded by how they were placed, so you can see at a glance what to check.</p>
