@@ -7,7 +7,15 @@ import sharp from 'sharp';
 import { projects, aboutInfo, siteConfig } from './src/data.js';
 import { blogPosts } from './src/blog-data.js';
 import { privacyPolicy } from './src/privacy.js';
-import { labIntro, labProjects } from './src/lab-data.js';
+import { labIntro, labProjects as labProjectsRaw } from './src/lab-data.js';
+
+// Lab order: Live first, then In progress, then Prototype. Within a status,
+// projects keep the order they have in lab-data.js.
+const LAB_STATUS_ORDER = ['Live', 'In progress', 'Prototype'];
+const labProjects = [...labProjectsRaw].sort((a, b) => {
+    const rank = s => { const i = LAB_STATUS_ORDER.indexOf(s); return i === -1 ? LAB_STATUS_ORDER.length : i; };
+    return rank(a.status) - rank(b.status);
+});
 
 const OUT_DIR = '.';
 const SRC_DIR = './src';
